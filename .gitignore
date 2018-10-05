@@ -1,8 +1,6 @@
 ### Java ###
 mvnw
 mvnw.cmd
-maven-wrapper.properties
-.mvn/wrapper/
 
 ### STS ###
 .apt_generated
@@ -18,7 +16,6 @@ maven-wrapper.properties
 *.iws
 *.iml
 *.ipr
-*.jar
 
 ### NetBeans ###
 /nbproject/private/
