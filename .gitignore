@@ -2,7 +2,7 @@
 mvnw
 mvnw.cmd
 maven-wrapper.properties
-/mvn/wrapper
+/mvn/wrapper/
 
 /target/
 !.mvn/wrapper/maven-wrapper.jar
