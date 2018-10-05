@@ -21,6 +21,7 @@ maven-wrapper.properties
 *.iws
 *.iml
 *.ipr
+*.jar
 
 ### NetBeans ###
 /nbproject/private/
