@@ -12,10 +12,13 @@ import java.util.List;
 
 public interface SiteRepository extends JpaRepository<Site,Integer> {
 
-    public List<Site> findByNomSite(String lns);
+    public List<Site> findByNomSite(String nom);
 
-    public Page<Site>  findByNomSite(String pns, Pageable pageable);
+    public Page<Site>  findByNomSite(String nom, Pageable pageable);
 
     @Query ("SELECT e FROM Site e WHERE e.nomSite LIKE :x" )
-    public Page<Site> chercheSites(@Param("x")String pns, Pageable pageable);
+    public Page<Site> chercheSites(@Param("x")String nom, Pageable pageable);
+
+    @Query ("SELECT e.descriptionSite FROM Site e" )
+    public List<Site> findAllDescriptionSite();
 }
