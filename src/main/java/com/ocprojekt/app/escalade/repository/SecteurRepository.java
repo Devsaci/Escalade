@@ -16,7 +16,7 @@ public interface SecteurRepository extends JpaRepository<Secteur,Integer> {
 
     public Page<Secteur>  findByNomSecteur(String nom, Pageable pageable);
 
-    @Query ("SELECT e FROM Siteecteur e WHERE e.nomSecteur LIKE :x" )
+    @Query ("SELECT e FROM Secteur e WHERE e.nomSecteur LIKE :x" )
     public Page<Secteur> chercheSecteur(@Param("x")String nom, Pageable pageable);
 
     @Query ("SELECT e.descriptionSecteur FROM Secteur e" )
