@@ -17,9 +17,8 @@ public class Site implements Serializable {
         super();
     }
 
-    public Site(int id, String nomSite, String descriptionSite){
+    public Site(String nomSite, String descriptionSite){
         super();
-        this.id=id;
         this.nomSite=nomSite;
         this.descriptionSite=descriptionSite;
     }

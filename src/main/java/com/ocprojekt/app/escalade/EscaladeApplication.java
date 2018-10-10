@@ -1,13 +1,7 @@
 package com.ocprojekt.app.escalade;
 
-import com.ocprojekt.app.escalade.entities.Secteur;
-import com.ocprojekt.app.escalade.entities.Site;
-import com.ocprojekt.app.escalade.entities.Topo;
-import com.ocprojekt.app.escalade.entities.Voie;
-import com.ocprojekt.app.escalade.repository.SecteurRepository;
-import com.ocprojekt.app.escalade.repository.SiteRepository;
-import com.ocprojekt.app.escalade.repository.TopoRepository;
-import com.ocprojekt.app.escalade.repository.VoieRepository;
+import com.ocprojekt.app.escalade.entities.*;
+import com.ocprojekt.app.escalade.repository.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,6 +21,7 @@ public class EscaladeApplication {
         SecteurRepository secteurepository = ctx.getBean(SecteurRepository.class);
         VoieRepository voierepository = ctx.getBean(VoieRepository.class);
         TopoRepository toporepository = ctx.getBean(TopoRepository.class);
+        UtilisateurRepository utilisateurepository = ctx.getBean(UtilisateurRepository.class);
 
         List<Site> site = siterepository.findAll();
         site.forEach(e->System.out.println(e.getNomSite()));
@@ -40,11 +35,11 @@ public class EscaladeApplication {
         List<Topo> topo = toporepository.findAll();
         topo.forEach(e->System.out.println(e.getNomTopo()));
 
-        List<Topo> dtopo = toporepository.findAllDescriptionTopo();
-        for (Iterator iter = dtopo.iterator(); iter.hasNext();)
-        { String  dtp;
-            dtp = (String)iter.next();
-            System.out.println(dtp);}
+        List<Utilisateur> util = utilisateurepository.findAll();
+        util.forEach(e->System.out.println(e.getPseudo()));
+
+        List<Utilisateur> statut = utilisateurepository.findByStatut("user");
+        statut.forEach(e->System.out.println(e.getPseudo()));
 
     }
 }

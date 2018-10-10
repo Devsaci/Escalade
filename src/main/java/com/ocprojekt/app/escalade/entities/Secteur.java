@@ -19,12 +19,10 @@ public class Secteur implements Serializable {
         super();
     }
 
-    public Secteur(int id, String nomSecteur, String descriptionSecteur,int idSite){
+    public Secteur(String nomSecteur, String descriptionSecteur){
         super();
-        this.id=id;
         this.nomSecteur=nomSecteur;
         this.descriptionSecteur=descriptionSecteur;
-        this.idSite=idSite;
     }
 
     public int getId() {

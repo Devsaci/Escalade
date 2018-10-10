@@ -17,6 +17,8 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
 
     public Page<Utilisateur> findByPseudo(String nom, Pageable pageable);
 
+    public List<Utilisateur> findByStatut (String nom);
+
     @Query("SELECT e FROM Utilisateur e WHERE e.pseudo LIKE :x")
     public Page<Utilisateur> chercheUtilisateurs(@Param("x")String nom, Pageable pageable);
 

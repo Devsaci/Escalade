@@ -19,13 +19,11 @@ public class Voie implements Serializable {
         super();
     }
 
-    public Voie(int id, String nomVoie, String descriptionVoie, String niveauVoie, int idSecteur){
+    public Voie(String nomVoie, String descriptionVoie, String niveauVoie){
         super();
-        this.id=id;
         this.nomVoie=nomVoie;
         this.descriptionVoie=descriptionVoie;
         this.niveauVoie=niveauVoie;
-        this.idSecteur=idSecteur;
     }
 
     public int getId() {
