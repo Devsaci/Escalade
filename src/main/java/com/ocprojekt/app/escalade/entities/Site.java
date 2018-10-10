@@ -1,9 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Site implements Serializable {
@@ -12,15 +11,17 @@ public class Site implements Serializable {
     private int id;
     private String nomSite;
     private String descriptionSite;
+    @OneToMany(mappedBy = "site", fetch = FetchType.LAZY)
+    private Collection<Secteur>secteurs;
 
-    public Site (){
+    public Site() {
         super();
     }
 
-    public Site(String nomSite, String descriptionSite){
+    public Site(String nomSite, String descriptionSite) {
         super();
-        this.nomSite=nomSite;
-        this.descriptionSite=descriptionSite;
+        this.nomSite = nomSite;
+        this.descriptionSite = descriptionSite;
     }
 
     public int getId() {
@@ -31,6 +32,14 @@ public class Site implements Serializable {
         this.id = id;
     }
 
+    public String getNomSite() {
+        return nomSite;
+    }
+
+    public void setNomSite(String nomSite) {
+        this.nomSite = nomSite;
+    }
+
     public String getDescriptionSite() {
         return descriptionSite;
     }
@@ -39,11 +48,11 @@ public class Site implements Serializable {
         this.descriptionSite = descriptionSite;
     }
 
-    public String getNomSite() {
-        return nomSite;
+    public Collection<Secteur> getSecteurs() {
+        return secteurs;
     }
 
-    public void setNomSite(String nomSite) {
-        this.nomSite = nomSite;
+    public void setSecteurs(Collection<Secteur> secteurs) {
+        this.secteurs = secteurs;
     }
 }

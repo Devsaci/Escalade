@@ -14,16 +14,18 @@ public class Topo implements Serializable {
     private String nomTopo;
     private String descriptionTopo;
     private String statutTopo;
+    private Utilisateur utilisateur;
 
     public Topo() {
         super();
     }
 
-    public Topo(String nomTopo, String descriptionTopo, String statutTopo) {
+    public Topo(String nomTopo, String descriptionTopo, String statutTopo, Utilisateur utilisateur) {
         super();
         this.nomTopo = nomTopo;
         this.descriptionTopo = descriptionTopo;
         this.statutTopo = statutTopo;
+        this.utilisateur = utilisateur;
     }
 
     public int getId() {
@@ -56,5 +58,13 @@ public class Topo implements Serializable {
 
     public void setStatutTopo(String statutTopo) {
         this.statutTopo = statutTopo;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 }

@@ -13,17 +13,18 @@ public class Voie implements Serializable {
     private String nomVoie;
     private String descriptionVoie;
     private String niveauVoie;
-    private int idSecteur;
+    private Secteur secteur;
 
-    public Voie(){
+    public Voie() {
         super();
     }
 
-    public Voie(String nomVoie, String descriptionVoie, String niveauVoie){
+    public Voie(String nomVoie, String descriptionVoie, String niveauVoie, Secteur secteur) {
         super();
-        this.nomVoie=nomVoie;
-        this.descriptionVoie=descriptionVoie;
-        this.niveauVoie=niveauVoie;
+        this.nomVoie = nomVoie;
+        this.descriptionVoie = descriptionVoie;
+        this.niveauVoie = niveauVoie;
+        this.secteur = secteur;
     }
 
     public int getId() {
@@ -58,12 +59,11 @@ public class Voie implements Serializable {
         this.niveauVoie = niveauVoie;
     }
 
-    public int getIdSecteur() {
-        return idSecteur;
+    public Secteur getSecteur() {
+        return secteur;
     }
 
-    public void setIdSecteur(int idSecteur) {
-        this.idSecteur = idSecteur;
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
     }
-
 }

@@ -1,9 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Secteur implements Serializable {
@@ -13,16 +12,19 @@ public class Secteur implements Serializable {
     private int id;
     private String nomSecteur;
     private String descriptionSecteur;
-    private int idSite;
+    private Site site;
+    @OneToMany(mappedBy = "secteur", fetch = FetchType.LAZY)
+    private Collection<Voie> voies;
 
-    public Secteur (){
+    public Secteur() {
         super();
     }
 
-    public Secteur(String nomSecteur, String descriptionSecteur){
+    public Secteur(String nomSecteur, String descriptionSecteur, Site site) {
         super();
-        this.nomSecteur=nomSecteur;
-        this.descriptionSecteur=descriptionSecteur;
+        this.nomSecteur = nomSecteur;
+        this.descriptionSecteur = descriptionSecteur;
+        this.site = site;
     }
 
     public int getId() {
@@ -49,12 +51,19 @@ public class Secteur implements Serializable {
         this.descriptionSecteur = descriptionSecteur;
     }
 
-    public int getIdSite() {
-        return idSite;
+    public Site getSite() {
+        return site;
     }
 
-    public void setIdSite(int idSite) {
-        this.idSite = idSite;
+    public void setSite(Site site) {
+        this.site = site;
     }
 
+    public Collection<Voie> getVoies() {
+        return voies;
+    }
+
+    public void setVoies(Collection<Voie> voies) {
+        this.voies = voies;
+    }
 }

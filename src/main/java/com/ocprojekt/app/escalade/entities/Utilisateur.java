@@ -1,9 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Utilisateur implements Serializable {
@@ -14,6 +13,8 @@ public class Utilisateur implements Serializable {
     private String pseudo;
     private String password;
     private String statut;
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY)
+    private Collection<Topo> topos;
 
     public Utilisateur() {
         super();
@@ -56,5 +57,13 @@ public class Utilisateur implements Serializable {
 
     public void setStatut(String statut) {
         this.statut = statut;
+    }
+
+    public Collection<Topo> getTopos() {
+        return topos;
+    }
+
+    public void setTopos(Collection<Topo> topos) {
+        this.topos = topos;
     }
 }
