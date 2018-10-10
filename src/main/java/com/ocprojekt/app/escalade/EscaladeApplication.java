@@ -18,6 +18,5 @@ public class EscaladeApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(EscaladeApplication.class, args);
 
-
     }
 }

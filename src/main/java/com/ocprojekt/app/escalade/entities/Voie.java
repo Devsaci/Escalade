@@ -1,8 +1,6 @@
 package com.ocprojekt.app.escalade.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -13,6 +11,8 @@ public class Voie implements Serializable {
     private String nomVoie;
     private String descriptionVoie;
     private String niveauVoie;
+    @ManyToOne
+    @JoinColumn(name = "REF_SECT")
     private Secteur secteur;
 
     public Voie() {

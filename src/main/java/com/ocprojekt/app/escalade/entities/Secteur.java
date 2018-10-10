@@ -12,6 +12,8 @@ public class Secteur implements Serializable {
     private int id;
     private String nomSecteur;
     private String descriptionSecteur;
+    @ManyToOne
+    @JoinColumn(name = "REF_SITE")
     private Site site;
     @OneToMany(mappedBy = "secteur", fetch = FetchType.LAZY)
     private Collection<Voie> voies;

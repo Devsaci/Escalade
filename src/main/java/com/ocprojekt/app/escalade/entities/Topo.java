@@ -1,8 +1,6 @@
 package com.ocprojekt.app.escalade.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -14,6 +12,8 @@ public class Topo implements Serializable {
     private String nomTopo;
     private String descriptionTopo;
     private String statutTopo;
+    @ManyToOne
+    @JoinColumn(name = "REF_UTIL")
     private Utilisateur utilisateur;
 
     public Topo() {
