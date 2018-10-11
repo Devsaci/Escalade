@@ -17,8 +17,23 @@
 
 <div layout:fragment="content">
     <section id="topo">
-        <h1> Trouver un Topo </h1>
+        <div class="container">
+        <h2> Trouver un Topo </h2>
         <h4> Consultez notre liste de Topos et faites une demande de prêt!! </h4>
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th>Nom du Topo</th> <th>Description du Topo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="e:${topo}">
+                <td th:text="${e.nomTopo}"></td>
+                <td th:text="${e.descriptionTopo}"></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
     </section>
 </div>
 

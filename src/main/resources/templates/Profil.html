@@ -17,8 +17,23 @@
 
 <div layout:fragment="content">
     <section id="Profil">
-        <h1> Profil </h1>
+        <div class="container">
+        <h2> Profil </h2>
         <h4> N'oubliez pas de valider vos demandes de prêt de topo! </h4>
+            <table class="table table-stripped">
+                <thead>
+                <tr>
+                    <th>Pseudo</th> <th>Password</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e:${utilisateur}">
+                    <td th:text="${e.pseudo}"></td>
+                    <td th:text="${e.password}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
 

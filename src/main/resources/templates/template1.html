@@ -12,17 +12,16 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
         <div class="container-fluid">
-
             <div class="navbar-header">
-                <a class="navbar-brand" th:href="@{/Grimpe}"><strong>Escalade</strong></a>
                 <ul class="nav navbar-nav">
+                    <li><a  th:href="@{/Accueil}"><strong>Escalade</strong></a></li>
                     <li><a  th:href="@{/Grimpe}">Ou grimper?</a></li>
                     <li><a  th:href="@{/Topo}">Trouver un topo</a></li>
+                    <li><a  th:href="@{/Profil}">Votre profil</a></li>
                 </ul>
             </div>
-
         </div>
     </nav>
 </header>
