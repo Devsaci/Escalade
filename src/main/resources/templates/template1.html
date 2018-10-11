@@ -16,10 +16,10 @@
         <div class="container-fluid">
 
             <div class="navbar-header">
-                <a class="navbar-brand" href="#spacer"><strong>Escalade</strong></a>
+                <a class="navbar-brand" th:href="@{/Grimpe}"><strong>Escalade</strong></a>
                 <ul class="nav navbar-nav">
-                    <li><a  href="#spacer">Ou grimper?</a></li>
-                    <li><a  href="#spacer">Trouver un topo</a></li>
+                    <li><a  th:href="@{/Grimpe}">Ou grimper?</a></li>
+                    <li><a  th:href="@{/Grimpe}">Trouver un topo</a></li>
                 </ul>
             </div>
 
@@ -27,8 +27,8 @@
     </nav>
 </header>
 
-<div th:fragment="content">
-</div>
+<section layout:fragment="content">
+</section>
 
 <footer>
     <nav class="navbar navbar-default navbar-fixed-bottom">

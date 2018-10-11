@@ -6,6 +6,10 @@ package com.ocprojekt.app.escalade;
 //import com.ocprojekt.app.escalade.repository.SecteurRepository;
 //import com.ocprojekt.app.escalade.repository.SiteRepository;
 //import com.ocprojekt.app.escalade.repository.VoieRepository;
+//import com.ocprojekt.app.escalade.entities.Topo;
+//import com.ocprojekt.app.escalade.entities.Utilisateur;
+//import com.ocprojekt.app.escalade.repository.TopoRepository;
+//import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +24,10 @@ public class EscaladeApplication implements CommandLineRunner {
 //	private SecteurRepository secteurRepository;
 //	@Autowired
 //	private VoieRepository voieRepository;
+//	@Autowired
+//	private UtilisateurRepository utilisateurRepository;
+//	@Autowired
+//	private TopoRepository topoRepository;
 
 	public static void main(String[] args) {
 	SpringApplication.run(EscaladeApplication.class, args);
@@ -30,6 +38,27 @@ public class EscaladeApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 // Peuplement des tables Spring Data
+//		Utilisateur u1 = utilisateurRepository.save(new Utilisateur("Jimbo","1111",true));
+//		Utilisateur u2 = utilisateurRepository.save(new Utilisateur("Elorna","1112",false));
+//		Utilisateur u3 = utilisateurRepository.save(new Utilisateur("Martin","1113",false));
+//		Utilisateur u4 = utilisateurRepository.save(new Utilisateur("Luck","1114",false));
+//		Utilisateur u5 = utilisateurRepository.save(new Utilisateur("Siri","1115",false));
+//
+//		Topo tp1 = topoRepository.save(new Topo("Les falaises du diable",
+//				"Au milieu d'un monde perdu, des falaises de plusieurs centaines" +
+//						"de kilomètres se dresse pour mettre au défi les grimpeurs" +
+//						"les plus téméraires ",false,u1));
+//		Topo tp2 = topoRepository.save(new Topo("Dragon Pic",
+//				"Un dragon nommé Smaug protège depuis des milliers d'années" +
+//						"un trèsor aux inestimables artefacts.",true,u3));
+//		Topo tp3 = topoRepository.save(new Topo("La colline des Moutons",
+//				"Un jolie colline toute verte qui mène à une splendide falaise. En suivant les" +
+//						"moutons, vous risquez de tomber de haut.",false,u4));
+//		Topo tp4 = topoRepository.save(new Topo("Gerdre la Sauvage",
+//				"Sur le pic d'un autre pic des plus escarpé, est planté Escalibur, l'épée" +
+//						"enchantée. Attention durant votre ascension voyageur, car Gerdre" +
+//						"la Sauvage veille.",false,u1));
+//
 //		Site s1 = siteRepository.save(new Site("Le Mont Boom",
 //				"Attention aux explosifs tous les six mètres."));
 //		Site s2 = siteRepository.save(new Site("Les Alpes Froides",

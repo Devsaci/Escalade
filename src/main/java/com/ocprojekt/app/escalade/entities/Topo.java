@@ -11,7 +11,7 @@ public class Topo implements Serializable {
     private int id;
     private String nomTopo;
     private String descriptionTopo;
-    private String statutTopo;
+    private Boolean isLoan =false;
     @ManyToOne
     @JoinColumn(name = "REF_UTIL")
     private Utilisateur utilisateur;
@@ -20,11 +20,10 @@ public class Topo implements Serializable {
         super();
     }
 
-    public Topo(String nomTopo, String descriptionTopo, String statutTopo, Utilisateur utilisateur) {
-        super();
+    public Topo(String nomTopo, String descriptionTopo, Boolean isLoan, Utilisateur utilisateur) {
         this.nomTopo = nomTopo;
         this.descriptionTopo = descriptionTopo;
-        this.statutTopo = statutTopo;
+        this.isLoan = isLoan;
         this.utilisateur = utilisateur;
     }
 
@@ -52,12 +51,12 @@ public class Topo implements Serializable {
         this.descriptionTopo = descriptionTopo;
     }
 
-    public String getStatutTopo() {
-        return statutTopo;
+    public Boolean getLoan() {
+        return isLoan;
     }
 
-    public void setStatutTopo(String statutTopo) {
-        this.statutTopo = statutTopo;
+    public void setLoan(Boolean loan) {
+        isLoan = loan;
     }
 
     public Utilisateur getUtilisateur() {

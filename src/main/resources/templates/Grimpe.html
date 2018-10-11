@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="templates/template1">
+      layout:decorator="template1">
 <head>
     <meta charset="UTF-8"/>
     <title>Escaladons</title>
@@ -15,11 +15,11 @@
 
 <body>
 
-<div class="container" id="spacer">
+<div layout:fragment="content">
 
-<section id="listegrimpe">
+    <section id="grimpe">
     <h1> Ou Grimper?</h1>
-<h4> Trouve ton spot de grimpe parmi tout nos spots et amuse toi! </h4>
+<h4> Trouve ton spot de grimpe parmi tous nos spots et amuse toi! </h4>
  <table class="table table-stripped">
     <thead>
       <tr>
@@ -62,8 +62,7 @@
         </tr>
         </tbody>
     </table>
-</section>
-
+    </section>
 </div>
 
 </body>
