@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Escaladons</title>
-
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
                                    th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
@@ -12,51 +11,42 @@
 
 <body>
 
- <h1> Escaladons chers amis!</h1>
-
 <div class="container">
- <table class="table table-stripped">
 
+ <table class="table table-stripped">
     <thead>
       <tr>
           <th>Nom du site</th> <th>Description du site</th>
       </tr>
     </thead>
-
      <tbody>
      <tr th:each="e:${site}">
          <td th:text="${e.nomSite}"></td>
          <td th:text="${e.descriptionSite}"></td>
      </tr>
      </tbody>
-
-</table>
+ </table>
 
     <table class="table table-stripped">
-
         <thead>
         <tr>
             <th>Nom des secteurs</th> <th>Description des secteurs</th>
         </tr>
         </thead>
-
         <tbody>
         <tr th:each="e:${secteur}">
             <td th:text="${e.nomSecteur}"></td>
             <td th:text="${e.descriptionSecteur}"></td>
         </tr>
         </tbody>
-
     </table>
 
     <table class="table table-stripped">
-
         <thead>
         <tr>
             <th>Nom des voies</th> <th>Description des voies</th> <th>Difficulté des voies</th>
         </tr>
         </thead>
-
         <tbody>
         <tr th:each="e:${voie}">
             <td th:text="${e.nomVoie}"></td>
@@ -64,8 +54,8 @@
             <td th:text="${e.niveauVoie}"></td>
         </tr>
         </tbody>
-
     </table>
+
 </div>
 
 </body>
