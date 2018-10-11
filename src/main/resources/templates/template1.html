@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+          th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
+          th:href="@{css/MyStylesheet.css}"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#spacer"><strong>Escalade</strong></a>
+                <ul class="nav navbar-nav">
+                    <li><a  href="#spacer">Ou grimper?</a></li>
+                    <li><a  href="#spacer">Trouver un topo</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+<div th:fragment="content">
+</div>
+
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <h5><strong>ESCALADE  Contacts</strong> -  Adresse : 48 Impasse de la Montagne
+                89021 Les Monts  -  Mail : Escalade@gmail.com  -  Tel : 03.45.76.23.19 </h5>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>
+
+
