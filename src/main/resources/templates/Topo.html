@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template1">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Topo</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+          th:href="@{css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
+          th:href="@{css/MyStylesheet.css}"/>
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <section id="topo">
+        <h1> Trouver un Topo </h1>
+        <h4> Consultez notre liste de Topos et faites une demande de prêt!! </h4>
+    </section>
+</div>
+
+</body>
+</html>
