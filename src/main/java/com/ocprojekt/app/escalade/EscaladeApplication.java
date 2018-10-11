@@ -66,7 +66,7 @@ public class EscaladeApplication implements CommandLineRunner {
 //		Site s3 = siteRepository.save(new Site("Dragon Pic",
 //				"Un dragon veille sur ce tas de rochers comme si c'était sa maison."));
 //
-//		Secteur sct11= secteurRepository.save(new Secteur("Le versant Clic",
+//		  Secteur sct11= secteurRepository.save(new Secteur("Le versant Clic",
 //                "Rien ne sert de vous boucher les oreilles si le clic vient de sous vos pieds",s1));
 //        Secteur sct12= secteurRepository.save(new Secteur("Le versant Pointu",
 //                "Les petits bonhommes verts ont des hallebardes et elles piquent.",s1));
