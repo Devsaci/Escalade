@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://wwww.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
-      layout:decorator="Template1">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8"/>
     <title>Escaladons</title>
@@ -13,10 +12,19 @@
 </head>
 
 <body>
+<header>
+    <div class="nav navbar-default">
+        <div class = "container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a th:href="">Ou grimper?</a></li>
+                <li><a th:href="">Vos topos</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
 
-<div layout:fragment="content">
-    <div class="container">
-
+<section id="listegrimpe">
+<div class="container">
  <table class="table table-stripped">
     <thead>
       <tr>
@@ -59,9 +67,14 @@
         </tr>
         </tbody>
     </table>
-
-    </div>
 </div>
+</section>
+
+<footer>
+    <div class="navbar-fixed-bottom">
+        <small>Escalade - 48 Impasse de la Montagne  89021 Les Monts </small>
+    </div>
+</footer>
 
 </body>
 </html>
