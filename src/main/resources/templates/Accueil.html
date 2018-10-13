@@ -16,11 +16,35 @@
 <body>
 
 <div layout:fragment="content">
-    <section id="Home">
+    <section id="Accueil">
         <div class="container">
-        <h2> Home </h2>
-        <h4>Carroussel et Présentation.</h4>
-        </div>
+        <h2> Accueil </h2>
+            <p></p>
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+                    <h4><strong>Escalade</strong> est un site sponsorisé par tous
+                        les amateurs de bons Spots.</h4>
+                    </p>
+                    <p>
+                    <ul>
+                        <li><h4>Consulter nos Spots</h4></li>
+                    <p></p>
+                        <li><h4>Créer de nouveaux Spots</h4></li>
+                    <p></p>
+                        <li><h4>Ajouter des infos aux Spots existants</h4></li>
+                    <p></p>
+                        <li><h4>Prêter ou faites vous prêter des Topos</h4></li>
+                    <p></p>
+                        <li><h4>Commenter et partager vos sensations sur les différents Spots</h4></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-6">
+            <img th:src="@{/images/Escalade1.jpg}" id="imageAccueil"/>
+                </div>
+            </div>
+         </div>
     </section>
 </div>
 

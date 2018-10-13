@@ -11,6 +11,8 @@ import java.util.List;
 public interface SecteurRepository extends JpaRepository<Secteur,Integer> {
 
     @Query ("SELECT e FROM Secteur e WHERE e.nomSecteur LIKE :x" )
-    public List<Secteur> chercheSecteur(@Param("x")String nom);
+     List<Secteur> chercheSecteur(@Param("x")String nom);
+
+     List<Secteur> findBySiteId(int SiteId);
 
 }

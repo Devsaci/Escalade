@@ -11,19 +11,28 @@ package com.ocprojekt.app.escalade;
 //import com.ocprojekt.app.escalade.repository.TopoRepository;
 //import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
+import com.ocprojekt.app.escalade.entities.Secteur;
+import com.ocprojekt.app.escalade.entities.Site;
+import com.ocprojekt.app.escalade.entities.Voie;
+import com.ocprojekt.app.escalade.repository.SecteurRepository;
+import com.ocprojekt.app.escalade.repository.SiteRepository;
+import com.ocprojekt.app.escalade.repository.VoieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class EscaladeApplication implements CommandLineRunner {
 
-//	@Autowired
-//	private SiteRepository siteRepository;
-//	@Autowired
-//	private SecteurRepository secteurRepository;
-//	@Autowired
-//	private VoieRepository voieRepository;
+	@Autowired
+	private SiteRepository siteRepository;
+	@Autowired
+	private SecteurRepository secteurRepository;
+	@Autowired
+	private VoieRepository voieRepository;
 //	@Autowired
 //	private UtilisateurRepository utilisateurRepository;
 //	@Autowired
@@ -31,7 +40,6 @@ public class EscaladeApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 	SpringApplication.run(EscaladeApplication.class, args);
-
     }
 
 	@Override

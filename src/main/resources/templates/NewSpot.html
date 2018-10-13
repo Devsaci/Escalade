@@ -5,7 +5,7 @@
       layout:decorator="template1">
 <head>
     <meta charset="UTF-8"/>
-    <title>Profil</title>
+    <title>New Spot</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
           th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
@@ -16,23 +16,10 @@
 <body>
 
 <div layout:fragment="content">
-    <section id="Profil">
+    <section id="New Spot">
         <div class="container">
-        <h2> Votre Profil </h2>
-        <h4> N'oubliez pas de valider vos demandes de prêt de topo! </h4>
-            <table class="table table-stripped">
-                <thead>
-                <tr>
-                    <th>Pseudo</th> <th>Password</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="e:${utilisateur}">
-                    <td th:text="${e.pseudo}"></td>
-                    <td th:text="${e.password}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <h2> New Spot </h2>
+            <h4>Créé un nouveau Spot ou ajoute des infos à un Spot déjà créé!</h4>
         </div>
     </section>
 </div>

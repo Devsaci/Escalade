@@ -3,6 +3,9 @@ body{
     font-family:arial;
 }
 
+p{
+    margin-bottom: 20px;
+}
 h4,h2{
     text-align: left;
     opacity:0.8;
@@ -16,3 +19,10 @@ section{
     margin-top: 80px;
 }
 
+#imageAccueil{
+    float: right;
+}
+
+#Accueil{
+ height:400px;
+}
