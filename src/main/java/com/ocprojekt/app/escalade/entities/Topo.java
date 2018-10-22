@@ -8,7 +8,7 @@ public class Topo implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idTopo;
     private String nomTopo;
     private String descriptionTopo;
     private Boolean isLoan =false;
@@ -27,12 +27,12 @@ public class Topo implements Serializable {
         this.utilisateur = utilisateur;
     }
 
-    public int getId() {
-        return id;
+    public int getIdTopo() {
+        return idTopo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTopo(int idTopo) {
+        this.idTopo = idTopo;
     }
 
     public String getNomTopo() {

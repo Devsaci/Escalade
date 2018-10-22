@@ -30,24 +30,14 @@ public class GrimpeController {
     public String Grimpe(Model model){
         List<Site> listSites = siteRepository.findAll();
         model.addAttribute("site" , listSites );
-        List<Secteur> listSecteurs = secteurRepository.findAll();
-        model.addAttribute("secteur", listSecteurs);
-        List<Voie> listVoies = voieRepository.findAll();
-        model.addAttribute("voie", listVoies);
-
-//        List<Secteur> secteurBySite = secteurRepository.findBySiteId(10);
-//        secteurBySite.forEach(e->System.out.println(e.getNomSecteur()));
-//        secteurBySite.forEach(e->System.out.println(e.getDescriptionSecteur()));
-//
-//        List<Voie> voieBySecteur =  voieRepository.findBySecteurId(13);
-//        voieBySecteur.forEach(e->System.out.println(e.getNomVoie()));
-//        voieBySecteur.forEach(e->System.out.println(e.getDescriptionVoie()));
-//
-//        List<Voie> voieBySecteur2 =  voieRepository.findBySecteurId(14);
-//        voieBySecteur2.forEach(e->System.out.println(e.getNomVoie()));
-//        voieBySecteur2.forEach(e->System.out.println(e.getDescriptionVoie()));
         return "Grimpe";
     }
 
+    @RequestMapping(value="/Secteurs")
+    public String Secteurs(Model model){
+        List<Site> listSites = siteRepository.findAll();
+        model.addAttribute("site" , listSites );
+        return "Secteurs";
+    }
 
 }

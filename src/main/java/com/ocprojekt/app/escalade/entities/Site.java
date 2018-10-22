@@ -8,11 +8,11 @@ import java.util.Collection;
 public class Site implements Serializable {
 @Id
 @GeneratedValue
-    private int id;
+    private int idSite;
     private String nomSite;
     private String descriptionSite;
     @OneToMany(mappedBy = "site", fetch = FetchType.LAZY)
-    private Collection<Secteur>secteurs;
+    private Collection<Secteur> secteurs;
 
     public Site() {
         super();
@@ -24,12 +24,12 @@ public class Site implements Serializable {
         this.descriptionSite = descriptionSite;
     }
 
-    public int getId() {
-        return id;
+    public int getIdSite() {
+        return idSite;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSite(int idSite) {
+        this.idSite = idSite;
     }
 
     public String getNomSite() {

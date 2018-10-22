@@ -1,23 +1,17 @@
 package com.ocprojekt.app.escalade;
 
-//import com.ocprojekt.app.escalade.entities.Secteur;
-//import com.ocprojekt.app.escalade.entities.Site;
-//import com.ocprojekt.app.escalade.entities.Voie;
-//import com.ocprojekt.app.escalade.repository.SecteurRepository;
-//import com.ocprojekt.app.escalade.repository.SiteRepository;
-//import com.ocprojekt.app.escalade.repository.VoieRepository;
-//import com.ocprojekt.app.escalade.entities.Topo;
-//import com.ocprojekt.app.escalade.entities.Utilisateur;
-//import com.ocprojekt.app.escalade.repository.TopoRepository;
-//import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
 import com.ocprojekt.app.escalade.entities.Secteur;
 import com.ocprojekt.app.escalade.entities.Site;
 import com.ocprojekt.app.escalade.entities.Voie;
+import com.ocprojekt.app.escalade.entities.Topo;
+import com.ocprojekt.app.escalade.entities.Utilisateur;
 import com.ocprojekt.app.escalade.repository.SecteurRepository;
 import com.ocprojekt.app.escalade.repository.SiteRepository;
 import com.ocprojekt.app.escalade.repository.VoieRepository;
+import com.ocprojekt.app.escalade.repository.TopoRepository;
+import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,12 +21,12 @@ import java.util.List;
 @SpringBootApplication
 public class EscaladeApplication implements CommandLineRunner {
 
-	@Autowired
-	private SiteRepository siteRepository;
-	@Autowired
-	private SecteurRepository secteurRepository;
-	@Autowired
-	private VoieRepository voieRepository;
+//	@Autowired
+//	private SiteRepository siteRepository;
+//	@Autowired
+//	private SecteurRepository secteurRepository;
+//	@Autowired
+//	private VoieRepository voieRepository;
 //	@Autowired
 //	private UtilisateurRepository utilisateurRepository;
 //	@Autowired
@@ -46,6 +40,7 @@ public class EscaladeApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 // Peuplement des tables Spring Data
+//
 //		Utilisateur u1 = utilisateurRepository.save(new Utilisateur("Jimbo","1111",true));
 //		Utilisateur u2 = utilisateurRepository.save(new Utilisateur("Elorna","1112",false));
 //		Utilisateur u3 = utilisateurRepository.save(new Utilisateur("Martin","1113",false));

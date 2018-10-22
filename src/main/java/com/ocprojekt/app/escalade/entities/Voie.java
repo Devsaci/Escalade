@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Voie implements Serializable {
     @Id
     @GeneratedValue
-    private int id;
+    private int idVoie;
     private String nomVoie;
     private String descriptionVoie;
     private String niveauVoie;
@@ -27,12 +27,12 @@ public class Voie implements Serializable {
         this.secteur = secteur;
     }
 
-    public int getId() {
-        return id;
+    public int getIdVoie() {
+        return idVoie;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVoie(int idVoie) {
+        this.idVoie = idVoie;
     }
 
     public String getNomVoie() {

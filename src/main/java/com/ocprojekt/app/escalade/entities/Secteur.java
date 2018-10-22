@@ -9,7 +9,7 @@ public class Secteur implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idSecteur;
     private String nomSecteur;
     private String descriptionSecteur;
     @ManyToOne
@@ -29,12 +29,12 @@ public class Secteur implements Serializable {
         this.site = site;
     }
 
-    public int getId() {
-        return id;
+    public int getIdSecteur() {
+        return idSecteur;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSecteur(int idSecteur) {
+        this.idSecteur = idSecteur;
     }
 
     public String getNomSecteur() {

@@ -13,4 +13,7 @@ public interface SiteRepository extends JpaRepository<Site,Integer> {
     @Query ("SELECT e FROM Site e WHERE e.nomSite LIKE :x")
     public List<Site> chercheSites(@Param("x")String nom);
 
+    @Override
+    Site getOne(Integer integer);
+
 }

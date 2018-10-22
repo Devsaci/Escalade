@@ -19,10 +19,22 @@ section{
     margin-top: 80px;
 }
 
+#Accueil{
+    height:400px;
+}
+
+#Grimpe{
+    margin-bottom: 80px;
+}
+
+#ListeSpot{
+    width: 450px;
+    text-align: center;
+    margin: 20px;
+}
+
 #imageAccueil{
     float: right;
 }
 
-#Accueil{
- height:400px;
-}
+

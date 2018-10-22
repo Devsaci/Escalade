@@ -17,8 +17,8 @@ public class TopoController {
 
     @RequestMapping(value="/Topo")
     public String Topo(Model model1){
-        List<Topo> ltopo = topoRepository.findAll();
-        model1.addAttribute("topo" , ltopo );
+        List<Topo> listopo = topoRepository.findAll();
+        model1.addAttribute("topo" , listopo );
         return "Topo";
     }
 

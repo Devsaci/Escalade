@@ -9,7 +9,7 @@ public class Utilisateur implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int idUtilisateur;
     private String pseudo;
     private String password;
     private boolean isAdmin=false;
@@ -27,12 +27,12 @@ public class Utilisateur implements Serializable {
         this.isAdmin = isAdmin;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUtilisteur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public String getPseudo() {
