@@ -5,9 +5,9 @@
       layout:decorator="template1">
 <head>
     <meta charset="UTF-8"/>
-    <title>Grimpe</title>
+    <title>Voies</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
-                                   th:href="@{css/bootstrap.min.css}"/>
+          th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
           th:href="@{css/MyStylesheet.css}"/>
 
@@ -17,25 +17,27 @@
 
 <div layout:fragment="content">
 
-    <section id="Grimpe">
+    <section id="Voies">
         <div class="container">
 
             <h2> Ou Grimper?</h2>
             <h4> Trouve ton spot de grimpe parmi tous nos spots et amuse toi! </h4>
-             <div class="col-md-6" th:each="s:${site}">
-                <div id="ListeSpot" class="panel-default">
-                 <div class="panel-heading" >
-                 <div th:text="${s.nomSite}">Site:</div>
-                 </div>
-                 <div class="panel-body" >
-                  <div th:text="${s.descriptionSite}"></div>
-                 </div>
+            <div class="col-md-6" th:each="s:${voie}">
+                <div id="listeSecteur" class="panel-default">
+                    <div class="panel-heading" >
+                        <div th:text="${s.nomVoie}">Site:</div>
+                    </div>
+                    <div class="panel-body" >
+                        <div th:text="${s.descriptionVoie}"></div>
+
+                    </div>
                     <div>
                         <img th:src="@{/images/Escalade2.jpg}">
                     </div>
-                        <button class="btn-default pull-right">Afficher les Secteur</button>
+                    <p></p>
+                    <div th:text="${s.niveauVoie}"></div>
                 </div>
-             </div>
+            </div>
         </div>
     </section>
 </div>

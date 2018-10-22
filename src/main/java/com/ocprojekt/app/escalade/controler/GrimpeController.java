@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -26,18 +28,25 @@ public class GrimpeController {
     private VoieRepository voieRepository;
 
 
-    @RequestMapping(value="/Grimpe")
+    @RequestMapping(value="/Sites")
     public String Grimpe(Model model){
         List<Site> listSites = siteRepository.findAll();
         model.addAttribute("site" , listSites );
-        return "Grimpe";
+        return "Sites";
     }
 
     @RequestMapping(value="/Secteurs")
     public String Secteurs(Model model){
-        List<Site> listSites = siteRepository.findAll();
-        model.addAttribute("site" , listSites );
+        List<Secteur> listSecteurs = secteurRepository.findAll();
+        model.addAttribute("secteur" , listSecteurs );
         return "Secteurs";
+    }
+
+    @RequestMapping(value="/Voies")
+    public String Voies (Model model){
+        List<Voie> listVoies = voieRepository.findAll();
+        model.addAttribute("voie" , listVoies );
+        return "Voies";
     }
 
 }
