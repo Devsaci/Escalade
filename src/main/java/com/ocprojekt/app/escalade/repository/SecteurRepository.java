@@ -16,7 +16,4 @@ public interface SecteurRepository extends JpaRepository<Secteur,Integer> {
 
      List<Secteur> findSecteursBySiteIdSite(Integer id);
 
-    //    @Query ("SELECT e FROM Secteur e WHERE e.ref_site='10'" )
-    //     List<Secteur> trouverDesSecteur();
-
 }

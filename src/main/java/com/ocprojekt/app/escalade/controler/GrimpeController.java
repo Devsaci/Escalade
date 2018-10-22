@@ -42,20 +42,16 @@ public class GrimpeController {
     public String AfficherSite(Model model,
                                @RequestParam(name="SiteID", defaultValue ="")Integer sid){
         model.addAttribute("SiteID", sid);
+
         Site site = siteRepository.getOne(sid);
         model.addAttribute("site" , site );
 
         List<Secteur> secteurs = secteurRepository.findSecteursBySiteIdSite(sid);
         model.addAttribute("secteur" , secteurs );
 
+        List<Voie> voies = voieRepository.findVoiesBySecteur_Site_IdSite(sid);
+        model.addAttribute("voies", voies);
 
-//        List<Voie> voies= voieRepository.findVoiesBySecteurMatches();
-//        model.addAttribute("voie", voies);
-
-//        List <Secteur> secteurs = secteurRepository.trouverDesSecteur();
-//        model.addAttribute("secteur" , secteurs );
-//        List <Voie> voies = voieRepository.trouverDesVoies();
-//        model.addAttribute("voie" , voies);
         return "Site";
     }
 }

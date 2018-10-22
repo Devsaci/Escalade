@@ -59,18 +59,18 @@
             <h4>Voies :</h4>
             <p></p>
 
-     <!--<div class="col-md-12" th:each="v:${voie}">-->
-         <!--<div class="panel-default">-->
-                  <!--<div class="panel-heading" >-->
-                     <!--<div th:text="${v.nomVoie}">Site:</div>-->
-                  <!--</div>-->
-            <!--<div class="panel-body" >-->
-                  <!--<div th:text="${v.descriptionVoie}"></div>-->
-                  <!--<p></p>-->
-            <!--<div th:text="${v.niveauVoie}"></div>-->
-            <!--</div>-->
-         <!--</div>-->
-     <!--</div>-->
+     <div class="col-md-12" th:each="v:${voies}">
+         <div class="panel-default">
+                  <div class="panel-heading" >
+                     <div th:text="${v.nomVoie}">Site:</div>
+                  </div>
+            <div class="panel-body" >
+                  <div th:text="${v.descriptionVoie}"></div>
+                  <p></p>
+            <div th:text="${v.niveauVoie}"></div>
+            </div>
+         </div>
+     </div>
 
             <p></p>
             <h4>Commentaires :</h4>
@@ -79,10 +79,10 @@
             <div class="col-md-12">
                 <div class="panel-default">
                     <div class="panel-heading" >
-                        <div>Post : Superbe Voie!</div>
+                        <div>Titre du Post</div>
                     </div>
                     <div class="panel-body" >
-                        <div> Ca grimpe vachement mais quelle éclate...</div>
+                        <div> Exemple de commentaire.</div>
                     </div>
                 </div>
             </div>
