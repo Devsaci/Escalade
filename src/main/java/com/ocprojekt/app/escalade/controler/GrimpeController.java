@@ -31,10 +31,10 @@ public class GrimpeController {
     public String Grimpe(Model model,
                          @RequestParam(name="SiteID", defaultValue ="")Integer sid,
                          @RequestParam(name="motclef", defaultValue ="")String mc){
-        model.addAttribute("motclef", mc );
         List<Site> lSites = siteRepository.chercherSite("%"+mc+"%");
         model.addAttribute("listSite" , lSites );
         model.addAttribute("SiteID", sid);
+        model.addAttribute("motclef", mc );
         return "ListeSites";
     }
 

@@ -62,7 +62,7 @@
      <div class="col-md-12" th:each="v:${voies}">
          <div class="panel-default">
                   <div class="panel-heading" >
-                     <div th:text="${v.nomVoie}">Site:</div>
+                     <div th:text="${v.nomVoie}"></div>
                   </div>
             <div class="panel-body" >
                   <div th:text="${v.descriptionVoie}"></div>
@@ -71,21 +71,6 @@
             </div>
          </div>
      </div>
-
-            <p></p>
-            <h4>Commentaires :</h4>
-            <p></p>
-
-            <div class="col-md-12">
-                <div class="panel-default">
-                    <div class="panel-heading" >
-                        <div>Titre du Post</div>
-                    </div>
-                    <div class="panel-body" >
-                        <div> Exemple de commentaire.</div>
-                    </div>
-                </div>
-            </div>
 
   </div>
  </section>
