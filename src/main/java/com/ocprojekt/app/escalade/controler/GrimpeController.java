@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -28,25 +27,35 @@ public class GrimpeController {
     private VoieRepository voieRepository;
 
 
-    @RequestMapping(value="/Sites")
-    public String Grimpe(Model model){
-        List<Site> listSites = siteRepository.findAll();
-        model.addAttribute("site" , listSites );
-        return "Sites";
+    @RequestMapping(value="/ListeSites")
+    public String Grimpe(Model model,
+                         @RequestParam(name="SiteID", defaultValue ="")Integer sid,
+                         @RequestParam(name="motclef", defaultValue ="")String mc){
+        model.addAttribute("motclef", mc );
+        List<Site> lSites = siteRepository.chercherSite("%"+mc+"%");
+        model.addAttribute("listSite" , lSites );
+        model.addAttribute("SiteID", sid);
+        return "ListeSites";
     }
 
-    @RequestMapping(value="/Secteurs")
-    public String Secteurs(Model model){
-        List<Secteur> listSecteurs = secteurRepository.findAll();
-        model.addAttribute("secteur" , listSecteurs );
-        return "Secteurs";
-    }
+    @RequestMapping(value="/Site")
+    public String AfficherSite(Model model,
+                               @RequestParam(name="SiteID", defaultValue ="")Integer sid){
+        model.addAttribute("SiteID", sid);
+        Site site = siteRepository.getOne(sid);
+        model.addAttribute("site" , site );
 
-    @RequestMapping(value="/Voies")
-    public String Voies (Model model){
-        List<Voie> listVoies = voieRepository.findAll();
-        model.addAttribute("voie" , listVoies );
-        return "Voies";
-    }
+        List<Secteur> secteurs = secteurRepository.findSecteursBySiteIdSite(sid);
+        model.addAttribute("secteur" , secteurs );
 
+
+//        List<Voie> voies= voieRepository.findVoiesBySecteurMatches();
+//        model.addAttribute("voie", voies);
+
+//        List <Secteur> secteurs = secteurRepository.trouverDesSecteur();
+//        model.addAttribute("secteur" , secteurs );
+//        List <Voie> voies = voieRepository.trouverDesVoies();
+//        model.addAttribute("voie" , voies);
+        return "Site";
+    }
 }

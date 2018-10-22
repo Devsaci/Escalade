@@ -17,32 +17,41 @@
 
 <div layout:fragment="content">
 
-    <section id="Grimpe">
+    <section id="ListeSite">
         <div class="container">
-
             <h2> Ou Grimper?</h2>
             <h4> Trouve ton spot de grimpe parmi tous nos spots et amuse toi! </h4>
-             <div class="col-md-6" th:each="s:${site}">
-                <div id="listeSite" class="panel-default">
+            <p></p>
+            <form th:action="@{Grimpe}" method="get">
+            <label>Mot clef :</label>
+            <input type="text" name="motclef" th:value="${motclef}"/>
+            <button class="btn btn-secondary">Chercher</button>
+            </form>
+        </div>
+        <p></p>
+        <div class="container">
+             <div class="col-md-6" th:each="s:${listSite}">
+                <div class="panel-default">
                  <div class="panel-heading" >
                  <div th:text="${s.nomSite}">Site:</div>
                  </div>
                  <div class="panel-body" >
                   <div th:text="${s.descriptionSite}"></div>
+                     <p></p>
+                     <img class="center-block" th:src="@{/images/Escalade2.jpg}">
+                     <div>
+                         <p></p>
+                         <form th:action="@{Site}" method="get">
+                     <input type="hidden" name="SiteID" th:value="${s.idSite}"/>
+                     <button type="submit" class="btn btn-secondary pull-right">Afficher le Site</button>
+                         </form>
+                     </div>
                  </div>
-                    <div>
-                        <img th:src="@{/images/Escalade2.jpg}">
-                    </div>
-                    <p></p>
-                    <!--<form th:action="/Grimpe" th:method="post">-->
-                    <input type="hidden" id="postSite" th:value="${s.nomSite}"/>
-                    <a th:href="@{/Secteurs}">
-                        <button type="submit" class="btn btn-secondary pull-right">Afficher les Secteurs</button>
-                    </a>
-                    <!--</form>-->
                 </div>
              </div>
+
         </div>
+
     </section>
 </div>
 

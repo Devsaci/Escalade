@@ -27,14 +27,9 @@ section{
     margin-bottom: 80px;
 }
 
-listeSite{
+#listeSite{
     text-align: center;
     margin: 20px;
-}
-
-listeSecteur{
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 #imageAccueil{

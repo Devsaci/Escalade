@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface SiteRepository extends JpaRepository<Site,Integer> {
 
-    @Query ("SELECT e FROM Site e WHERE e.nomSite LIKE :x")
-    public List<Site> chercheSites(@Param("x")String nom);
+    @Query ("SELECT s FROM Site s WHERE s.nomSite LIKE :x")
+    List<Site> chercherSite(@Param("x")String mc);
 
     @Override
     Site getOne(Integer integer);
