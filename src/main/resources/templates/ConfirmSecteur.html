@@ -5,7 +5,7 @@
       layout:decorator="template1">
 <head>
     <meta charset="UTF-8"/>
-    <title>Confirmation Site</title>
+    <title>Confirmation Secteur</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
           th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/MyStylesheet.css"
@@ -16,30 +16,28 @@
 <body>
 
 <div layout:fragment="content">
-    <section id="ConfirmSite">
+    <section id="ConfirmSecteur">
         <div class="container">
             <h2> New Spot </h2>
             <h4>Créé un nouveau Spot ou ajoute des infos à un Spot déjà créé!</h4>
             <p></p>
             <div class="col-md-6">
                 <div class="panel-default">
-                    <div class="panel-heading">Vous avez créé un nouveau SITE!</div>
+                    <div class="panel-heading">Vous avez créé un nouveau SECTEUR!</div>
                     <div class="panel-body">
                         <div class="form-group">
                             <label>ID:</label>
-                            <label th:text="${site.idSite}"></label>
+                            <label th:text="${secteur.idSecteur}"></label>
                         </div>
                         <div class="form-group">
-                            <label>Nom du Site:</label>
-                            <label th:text="${site.nomSite}"></label>
+                            <label>Nom du Secteur:</label>
+                            <label th:text="${secteur.nomSecteur}"></label>
                         </div>
                         <div class="form-group">
-                            <label>Description du Site:</label>
-                            <label th:text="${site.descriptionSite}"></label>
+                            <label>Description du Secteur:</label>
+                            <label th:text="${secteur.descriptionSecteur}"></label>
                         </div>
-
                         <a th:href="@{/NewSpot}"><button class="btn btn-default pull-right">retour</button> </a>
-
                     </div>
                 </div>
             </div>

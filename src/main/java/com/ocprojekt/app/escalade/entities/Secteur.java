@@ -1,6 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -10,10 +12,14 @@ public class Secteur implements Serializable {
     @Id
     @GeneratedValue
     private int idSecteur;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String nomSecteur;
+    @NotNull
+    @Size(min = 4, max = 500)
     private String descriptionSecteur;
     @ManyToOne
-    @JoinColumn(name = "REF_SITE")
+    @JoinColumn(name = "idSite")
     private Site site;
     @OneToMany(mappedBy = "secteur", fetch = FetchType.LAZY)
     private Collection<Voie> voies;

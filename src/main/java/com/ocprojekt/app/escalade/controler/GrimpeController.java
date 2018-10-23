@@ -29,11 +29,9 @@ public class GrimpeController {
 
     @RequestMapping(value="/ListeSites")
     public String Grimpe(Model model,
-                         @RequestParam(name="SiteID", defaultValue ="")Integer sid,
                          @RequestParam(name="motclef", defaultValue ="")String mc){
         List<Site> lSites = siteRepository.chercherSite("%"+mc+"%");
         model.addAttribute("listSite" , lSites );
-        model.addAttribute("SiteID", sid);
         model.addAttribute("motclef", mc );
         return "ListeSites";
     }

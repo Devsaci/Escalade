@@ -49,28 +49,28 @@ public class EscaladeApplication implements CommandLineRunner {
 //
 //		Topo tp1 = topoRepository.save(new Topo("Les falaises du diable",
 //				"Au milieu d'un monde perdu, des falaises de plusieurs centaines" +
-//						"de kilomètres se dresse pour mettre au défi les grimpeurs" +
-//						"les plus téméraires ",false,u1));
+//						" de kilomètres se dressent pour mettre au défi les grimpeurs" +
+//						" les plus téméraires. ",false,u1));
 //		Topo tp2 = topoRepository.save(new Topo("Dragon Pic",
 //				"Un dragon nommé Smaug protège depuis des milliers d'années" +
-//						"un trèsor aux inestimables artefacts.",true,u3));
+//						" un trèsor aux inestimables artefacts.",true,u3));
 //		Topo tp3 = topoRepository.save(new Topo("La colline des Moutons",
-//				"Un jolie colline toute verte qui mène à une splendide falaise. En suivant les" +
-//						"moutons, vous risquez de tomber de haut.",false,u4));
+//				"Une jolie colline toute verte qui mène à une splendide falaise. En suivant les" +
+//						" moutons, vous risquez de tomber de haut.",false,u4));
 //		Topo tp4 = topoRepository.save(new Topo("Gerdre la Sauvage",
-//				"Sur le pic d'un autre pic des plus escarpé, est planté Escalibur, l'épée" +
-//						"enchantée. Attention durant votre ascension voyageur, car Gerdre" +
-//						"la Sauvage veille.",false,u1));
+//				"Sur le pic d'un autre pic des plus escarpés, est planté Escalibur, l'épée" +
+//						" enchantée. Attention durant votre ascension car Gerdre" +
+//						" la Sauvage veille.",false,u1));
 //
 //		Site s1 = siteRepository.save(new Site("Le Mont Boom",
-//				"Attention aux explosifs tous les six mètres."));
+//				"Attention aux explosifs, y'en a tous les six mètres."));
 //		Site s2 = siteRepository.save(new Site("Les Alpes Froides",
 //				"On ne compte plus les grimpeurs qui y ont laissé leurs pieds."));
 //		Site s3 = siteRepository.save(new Site("Dragon Pic",
 //				"Un dragon veille sur ce tas de rochers comme si c'était sa maison."));
 //
 //		  Secteur sct11= secteurRepository.save(new Secteur("Le versant Clic",
-//                "Rien ne sert de vous boucher les oreilles si le clic vient de sous vos pieds",s1));
+//                "Rien ne sert de vous boucher les oreilles si vous entendez clic.",s1));
 //        Secteur sct12= secteurRepository.save(new Secteur("Le versant Pointu",
 //                "Les petits bonhommes verts ont des hallebardes et elles piquent.",s1));
 //
@@ -78,11 +78,11 @@ public class EscaladeApplication implements CommandLineRunner {
 //                "Ou l'on se rends compte que le plus important dans un verre n'est pas le glaçon.",
 //                s2));
 //        Secteur sct22= secteurRepository.save(new Secteur("Le versant Bleu",
-//                "Plus on grimpe, plus la température baisse.",s2));
+//                "Plus on grimpe, plus on devient bleu.",s2));
 //
 //        Secteur sct31= secteurRepository.save(new Secteur("Le versant Os",
-//                "Tous ces squellettes n'étaient pas au courant des horaires de siestes du maitre des" +
-//                        "lieux.",s3));
+//                "Tous ces squellettes n'étaient pas au courant des horaires de sieste du maitre des" +
+//                        " lieux.",s3));
 //        Secteur sct32= secteurRepository.save(new Secteur("Le versant Feu",
 //                "Ne demandez jamais à un dragon de vous prêter du feu.",s3));
 //
@@ -100,15 +100,15 @@ public class EscaladeApplication implements CommandLineRunner {
 //                "Impossible",sct21));
 //        Voie voie41 = voieRepository.save(new Voie("-112","Mets ton écharpe!",
 //                "Mortel",sct22));
-//        Voie voie42 = voieRepository.save(new Voie("-212","Sans crème solaire.",
+//        Voie voie42 = voieRepository.save(new Voie("-212","Mets ton pancho!",
 //                "Mortel",sct22));
 //        Voie voie51 = voieRepository.save(new Voie("14H","C'est bon il dort.",
 //                "Impossible",sct31));
-//        Voie voie52 = voieRepository.save(new Voie("17H","Il risque de vous manger",
+//        Voie voie52 = voieRepository.save(new Voie("17H","Il fait sa ronde.",
 //                "Epique",sct31));
-//        Voie voie61 = voieRepository.save(new Voie("Une aile","Mais pas de poulet.",
+//        Voie voie61 = voieRepository.save(new Voie("Deux ailes","Mais pas de poulet.",
 //                "Mortel",sct32));
-//        Voie voie62 = voieRepository.save(new Voie("Brulant","Quand il souffle.",
+//        Voie voie62 = voieRepository.save(new Voie("Brulant","Quand il souffle sur vous.",
 //                "Mortel",sct32));
 
 	}

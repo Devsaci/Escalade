@@ -20,19 +20,24 @@
         <div class="container">
         <h2> Trouver un Topo </h2>
         <h4> Consultez notre liste de Topos et faites une demande de prêt!! </h4>
-        <table class="table table-stripped">
-            <thead>
-            <tr>
-                <th>Nom du Topo</th> <th>Description du Topo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="e:${topo}">
-                <td th:text="${e.nomTopo}"></td>
-                <td th:text="${e.descriptionTopo}"></td>
-            </tr>
-            </tbody>
-        </table>
+
+
+                <div id="affTopo" class="col-md-6" th:each="s:${topo}">
+                    <div class="panel-default">
+                        <div class="panel-heading" >
+                            <div th:text="${s.nomTopo}">Site:</div>
+                        </div>
+                        <div class="panel-body" >
+                            <div th:text="${s.descriptionTopo}"></div>
+                            <p></p>
+                            <img class="center-block" th:src="@{/images/Escalade2.jpg}">
+                        </div>
+                        <div>
+                        <button type="button" class="btn btn-secondary pull-right">Demande de Prêt</button>
+                        </div>
+                    </div>
+                </div>
+
         </div>
     </section>
 </div>

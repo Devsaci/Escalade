@@ -14,4 +14,5 @@ public interface VoieRepository extends JpaRepository<Voie,Integer> {
     List<Voie> chercheVoie(@Param("x")String nom);
 
     List<Voie> findVoiesBySecteur_Site_IdSite(Integer id);
+
 }
