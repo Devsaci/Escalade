@@ -21,6 +21,14 @@ section{
     margin-bottom: 80px;
 }
 
+#imgProfTopo{
+    margin-top: 20px;
+}
+
+#profCreaTopo{
+    margin-top: 50px;
+}
+
 #Accueil{
     height:400px;
 }
@@ -45,3 +53,4 @@ section{
 #affTopo{
     margin-bottom: 20px;
 }
+

@@ -51,7 +51,7 @@
                         <form th:action="@{saveSecteur}" method="post">
                             <div class="form-group">
                                 <label class="control-label">Site du Secteur :</label>
-                                <select name="site" th:field="*{site}" class="form-control">
+                                <select name="SiteSecteur" th:field="*{site}" class="form-control">
                                 <option th:each="site : ${listSite}"  th:text="${site.nomSite}"
                                         th:value="${site.idSite}"></option>
                                 </select>
@@ -84,7 +84,7 @@
                         <form th:action="@{saveVoie}" method="post">
                             <div class="form-group">
                                 <label class="control-label">Secteur de la Voie :</label>
-                                <select name="secteur" th:field="*{secteur}" class="form-control">
+                                <select name="SecteurVoie" th:field="*{secteur}" class="form-control">
                                     <option th:each="secteur : ${listSecteur}"  th:text="${secteur.nomSecteur}"
                                             th:value="${secteur.idSecteur}"></option>
                                 </select>

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -51,7 +52,10 @@ public class NewSpotController {
     }
 
     @RequestMapping(value="/saveSecteur",method = RequestMethod.POST)
-    public String saveSecteur(Model model, @Valid Secteur secteur, BindingResult bindingResult){
+    public String saveSecteur(Model model, @Valid Secteur secteur, BindingResult bindingResult,
+    @RequestParam(name = "SiteSecteur", defaultValue ="")Integer sis){
+        Site site = siteRepository.getOne(sis);
+        secteur.setSite(site);
         if(bindingResult.hasErrors())
             return "Newspot";
         secteurRepository.save(secteur);
@@ -60,7 +64,10 @@ public class NewSpotController {
     }
 
     @RequestMapping(value="/saveVoie",method = RequestMethod.POST)
-    public String saveVoie(Model model, @Valid Voie voie, BindingResult bindingResult){
+    public String saveVoie(Model model, @Valid Voie voie, BindingResult bindingResult,
+                           @RequestParam(name = "SecteurVoie", defaultValue ="")Integer siv){
+        Secteur secteur = secteurRepository.getOne(siv);
+        voie.setSecteur(secteur);
         if(bindingResult.hasErrors())
             return "Newspot";
         voieRepository.save(voie);

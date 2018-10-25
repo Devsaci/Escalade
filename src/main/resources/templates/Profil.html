@@ -19,20 +19,51 @@
     <section id="Profil">
         <div class="container">
         <h2> Votre Profil </h2>
-        <h4> N'oubliez pas de valider vos demandes de prêt de topo! </h4>
-            <table class="table table-stripped">
-                <thead>
-                <tr>
-                    <th>Pseudo</th> <th>Password</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="e:${utilisateur}">
-                    <td th:text="${e.pseudo}"></td>
-                    <td th:text="${e.password}"></td>
-                </tr>
-                </tbody>
-            </table>
+        <h4> Bonjour  <strong th:text="${utilisateur.pseudo}"></strong> n'oubliez pas de valider vos demandes de prêt de topo! </h4>
+            <p></p>
+            <h4><strong>Mes Topos :</strong></h4>
+            <p><p>
+            <div id="affTopo" class="col-md-6" th:each="s:${listopo}">
+                <div class="panel-default">
+                    <div class="panel-heading" >
+                        <div th:text="${s.nomTopo}">Site:</div>
+                    </div>
+                    <div class="panel-body" >
+                        <div th:text="${s.descriptionTopo}">
+                        </div>
+
+                        <img  id="imgProfTopo" class="center-block" th:src="@{/images/Escalade2.jpg}"/>
+
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary pull-right">Gestion des Prêts</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="panel-default">
+                    <div id="profCreaTopo" class="panel-heading" th:text="'Créer un nouveau Topo'"></div>
+                    <div class="panel-body">
+                        <form th:action="@{saveTopo}" method="post">
+                            <div class="form-group">
+                                <label class="control-label">Nom du Topo :</label>
+                                <input class="form-control" type="text" name="nomTopo" th:value="${topo.nomTopo}"/>
+                                <span class="red" th:errors="${topo.nomTopo}"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Description du Topo :</label>
+                                <input class="form-control" type="text" name="descriptionTopo"
+                                       th:value="${topo.descriptionTopo}"/>
+                                <span class="red" th:errors="${topo.descriptionTopo}"></span>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-default">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
