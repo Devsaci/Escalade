@@ -15,7 +15,7 @@ public class Site implements Serializable {
     @Size(min = 4, max = 50)
     private String nomSite;
     @NotNull
-    @Size(min = 4, max = 500)
+    @Size(min = 4, max = 250)
     private String descriptionSite;
     @OneToMany(mappedBy = "site", fetch = FetchType.LAZY)
     private Collection<Secteur> secteurs;

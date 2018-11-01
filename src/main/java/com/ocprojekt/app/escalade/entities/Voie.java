@@ -14,7 +14,7 @@ public class Voie implements Serializable {
     @Size(min = 4, max = 50)
     private String nomVoie;
     @NotNull
-    @Size(min = 4, max = 500)
+    @Size(min = 4, max = 250)
     private String descriptionVoie;
     @NotNull
     @Size(min = 4, max = 50)

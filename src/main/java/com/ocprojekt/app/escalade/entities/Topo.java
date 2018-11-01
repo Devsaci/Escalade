@@ -1,6 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -9,7 +11,11 @@ public class Topo implements Serializable {
     @Id
     @GeneratedValue
     private int idTopo;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String nomTopo;
+    @NotNull
+    @Size(min = 4, max = 250)
     private String descriptionTopo;
     private Boolean isLoan =false;
     @ManyToOne

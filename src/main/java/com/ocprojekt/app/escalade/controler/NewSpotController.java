@@ -45,7 +45,7 @@ public class NewSpotController {
     @RequestMapping(value="/saveSite",method = RequestMethod.POST)
     public String saveSite(Model model, @Valid Site site, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            return "Newspot";
+            return "NewSpot";
         siteRepository.save(site);
         model.addAttribute("site", site);
         return "ConfirmSite";
@@ -57,7 +57,7 @@ public class NewSpotController {
         Site site = siteRepository.getOne(sis);
         secteur.setSite(site);
         if(bindingResult.hasErrors())
-            return "Newspot";
+            return "NewSpot";
         secteurRepository.save(secteur);
         model.addAttribute("secteur", secteur);
         return "ConfirmSecteur";
@@ -69,7 +69,7 @@ public class NewSpotController {
         Secteur secteur = secteurRepository.getOne(siv);
         voie.setSecteur(secteur);
         if(bindingResult.hasErrors())
-            return "Newspot";
+            return "NewSpot";
         voieRepository.save(voie);
         model.addAttribute("voie", voie);
         return "ConfirmVoie";

@@ -1,6 +1,8 @@
 package com.ocprojekt.app.escalade.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -10,7 +12,11 @@ public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue
     private int idUtilisateur;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String pseudo;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String password;
     private boolean isAdmin=false;
     @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY)

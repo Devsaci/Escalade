@@ -51,11 +51,10 @@
                         <form th:action="@{saveSecteur}" method="post">
                             <div class="form-group">
                                 <label class="control-label">Site du Secteur :</label>
-                                <select name="SiteSecteur" th:field="*{site}" class="form-control">
+                                <select class="form-control" name="SiteSecteur">
                                 <option th:each="site : ${listSite}"  th:text="${site.nomSite}"
                                         th:value="${site.idSite}"></option>
                                 </select>
-                                <span class="red" th:errors="${site.idSite}"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Nom du Secteur :</label>
@@ -65,7 +64,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Description du Secteur :</label>
-                                <input class="form-control" type="text" name="descriptionSite"
+                                <input class="form-control" type="text" name="descriptionSecteur"
                                        th:value="${secteur.descriptionSecteur}"/>
                                 <span class="red" th:errors="${secteur.descriptionSecteur}"></span>
                             </div>
@@ -84,11 +83,10 @@
                         <form th:action="@{saveVoie}" method="post">
                             <div class="form-group">
                                 <label class="control-label">Secteur de la Voie :</label>
-                                <select name="SecteurVoie" th:field="*{secteur}" class="form-control">
+                                <select class="form-control" name="SecteurVoie">
                                     <option th:each="secteur : ${listSecteur}"  th:text="${secteur.nomSecteur}"
                                             th:value="${secteur.idSecteur}"></option>
                                 </select>
-                                <span class="red" th:errors="${secteur.idSecteur}"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Nom de la Voie :</label>

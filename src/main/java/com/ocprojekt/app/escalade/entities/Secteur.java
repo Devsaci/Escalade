@@ -16,7 +16,7 @@ public class Secteur implements Serializable {
     @Size(min = 4, max = 50)
     private String nomSecteur;
     @NotNull
-    @Size(min = 4, max = 500)
+    @Size(min = 4, max = 250)
     private String descriptionSecteur;
     @ManyToOne
     @JoinColumn(name = "idSite")
