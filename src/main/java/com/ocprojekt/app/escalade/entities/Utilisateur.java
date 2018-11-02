@@ -18,7 +18,6 @@ public class Utilisateur implements Serializable {
     @NotNull
     @Size(min = 4, max = 50)
     private String password;
-    private boolean isAdmin=false;
     @OneToMany(mappedBy = "utilisateur",fetch = FetchType.LAZY)
     private Collection<Topo> topos;
 
@@ -26,11 +25,10 @@ public class Utilisateur implements Serializable {
         super();
     }
 
-    public Utilisateur(String pseudo, String password, boolean isAdmin) {
+    public Utilisateur(String pseudo, String password) {
         super();
         this.pseudo = pseudo;
         this.password = password;
-        this.isAdmin = isAdmin;
     }
 
     public int getIdUtilisateur() {
@@ -55,14 +53,6 @@ public class Utilisateur implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
     }
 
     public Collection<Topo> getTopos() {
