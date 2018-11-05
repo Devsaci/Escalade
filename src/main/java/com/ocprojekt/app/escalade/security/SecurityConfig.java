@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .withUser("admin")
 //                .password("1234")
 //                .roles("USER", "ADMIN");
-        
+
          auth.jdbcAuthentication().dataSource(dataSource)
                  .usersByUsernameQuery("SELECT username as principal, password as credentials," +
                          " enabled FROM user WHERE username=?")
@@ -41,17 +41,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/login");
-        http.authorizeRequests().antMatchers("/").hasRole("USER");
-        http.authorizeRequests().antMatchers("/Accueil").hasRole("USER");
-        http.authorizeRequests().antMatchers("/ListeSites").hasRole("USER");
-        http.authorizeRequests().antMatchers("/Site").hasRole("USER");
-        http.authorizeRequests().antMatchers("/NewSpot").hasRole("USER");
-        http.authorizeRequests().antMatchers("/Topo").hasRole("USER");
-        http.authorizeRequests().antMatchers("/Profil").hasRole("USER");
-        http.authorizeRequests().antMatchers("/saveSite").hasRole("USER");
-        http.authorizeRequests().antMatchers("/saveSecteur").hasRole("USER");
-        http.authorizeRequests().antMatchers("/saveVoie").hasRole("USER");
-        http.authorizeRequests().antMatchers("/saveTopo").hasRole("USER");
+        http.authorizeRequests().antMatchers("/").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/Accueil").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/ListeSites").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/Site").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/NewSpot").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/Topo").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/Profil").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/saveSite").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/saveSecteur").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/saveVoie").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/saveTopo").hasAnyRole("USER","ADMIN");
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/login");
     }
 

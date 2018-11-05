@@ -11,7 +11,7 @@ public class Voie implements Serializable {
     @GeneratedValue
     private int idVoie;
     @NotNull
-    @Size(min = 4, max = 50)
+    @Size(min = 2, max = 50)
     private String nomVoie;
     @NotNull
     @Size(min = 4, max = 250)

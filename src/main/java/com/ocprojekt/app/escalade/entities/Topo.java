@@ -19,18 +19,18 @@ public class Topo implements Serializable {
     private String descriptionTopo;
     private Boolean isLoan =false;
     @ManyToOne
-    @JoinColumn(name = "REF_UTIL")
-    private Utilisateur utilisateur;
+    @JoinColumn(name = "username")
+    private User user;
 
     public Topo() {
         super();
     }
 
-    public Topo(String nomTopo, String descriptionTopo, Boolean isLoan, Utilisateur utilisateur) {
+    public Topo(String nomTopo, String descriptionTopo, Boolean isLoan, User user) {
         this.nomTopo = nomTopo;
         this.descriptionTopo = descriptionTopo;
         this.isLoan = isLoan;
-        this.utilisateur = utilisateur;
+        this.user = user;
     }
 
     public int getIdTopo() {
@@ -65,11 +65,11 @@ public class Topo implements Serializable {
         isLoan = loan;
     }
 
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+    public User getUser() {
+        return user;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

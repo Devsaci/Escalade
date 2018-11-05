@@ -1,10 +1,13 @@
 package com.ocprojekt.app.escalade.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class User implements Serializable {
@@ -20,6 +23,12 @@ public class User implements Serializable {
     @Size(min = 4, max = 50)
     private String role;
     private Boolean enabled;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Collection<Topo> topos;
+
+    public User() {
+        super();
+    }
 
     public User(String username, String password, String role, Boolean enabled) {
         this.username = username;
@@ -55,8 +64,15 @@ public class User implements Serializable {
     public Boolean getEnabled() {
         return enabled;
     }
-
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Collection<Topo> getTopos() {
+        return topos;
+    }
+
+    public void setTopos(Collection<Topo> topos) {
+        this.topos = topos;
     }
 }

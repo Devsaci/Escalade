@@ -21,12 +21,8 @@ section{
     margin-bottom: 80px;
 }
 
-#imgProfTopo{
-    margin-top: 20px;
-}
-
 #profCreaTopo{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 #Accueil{
@@ -51,6 +47,9 @@ section{
 }
 
 #affTopo{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
+#btntopos{
+    margin-bottom: 20px;
+}

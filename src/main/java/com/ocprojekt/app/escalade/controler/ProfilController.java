@@ -1,17 +1,18 @@
 package com.ocprojekt.app.escalade.controler;
 
-import com.ocprojekt.app.escalade.entities.Site;
 import com.ocprojekt.app.escalade.entities.Topo;
-import com.ocprojekt.app.escalade.entities.Utilisateur;
+import com.ocprojekt.app.escalade.entities.User;
 import com.ocprojekt.app.escalade.repository.TopoRepository;
-import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
+import com.ocprojekt.app.escalade.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -19,27 +20,28 @@ import java.util.List;
 public class ProfilController {
 
     @Autowired
-    private UtilisateurRepository utilisateurRepository;
+    private UserRepository userRepository;
     @Autowired
     private TopoRepository topoRepository;
 
     @RequestMapping(value="/Profil")
-    public String Profil(Model model, Integer idUt){
-        idUt=1;
-        Utilisateur util = utilisateurRepository.getOne(idUt);
-        model.addAttribute("utilisateur" , util );
-        List<Topo> listopo = topoRepository.findToposByUtilisateurIdUtilisateur(idUt);
+    public String Profil(Model model, @RequestParam(name="rmUser", defaultValue ="")String username){
+        model.addAttribute("rmUser", username);
+        User user = userRepository.findUserByUsername(username);
+        model.addAttribute("user" , user );
+        List<Topo> listopo = topoRepository.findToposByUser_Username(username);
         model.addAttribute("listopo" , listopo );
         model.addAttribute("topo", new Topo());
         return "Profil";
     }
 
     @RequestMapping(value="/saveTopo",method = RequestMethod.POST)
-    public String saveTopo(Model model, @Valid Topo topo, BindingResult bindingResult){
-        Utilisateur utilisateur= utilisateurRepository.getOne(1);
-        model.addAttribute("utilisateur" , utilisateur );
-        topo.setLoan(true);
-        topo.setUtilisateur(utilisateur);
+    public String saveTopo(Model model, @Valid Topo topo, @RequestParam(name="rmUser", defaultValue ="")String username, BindingResult bindingResult){
+        model.addAttribute("rmUser", username);
+        User user = userRepository.findUserByUsername(username);
+        model.addAttribute("user" , user );
+        topo.setLoan(false);
+        topo.setUser(user);
         if(bindingResult.hasErrors())
             return "Profil";
         topoRepository.save(topo);

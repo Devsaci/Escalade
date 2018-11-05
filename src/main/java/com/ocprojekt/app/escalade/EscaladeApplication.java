@@ -1,16 +1,16 @@
 package com.ocprojekt.app.escalade;
 
-//import com.ocprojekt.app.escalade.entities.Secteur;
-//import com.ocprojekt.app.escalade.entities.Site;
-//import com.ocprojekt.app.escalade.entities.Voie;
-//import com.ocprojekt.app.escalade.entities.Topo;
-//import com.ocprojekt.app.escalade.entities.Utilisateur;
-//import com.ocprojekt.app.escalade.repository.SecteurRepository;
-//import com.ocprojekt.app.escalade.repository.SiteRepository;
-//import com.ocprojekt.app.escalade.repository.VoieRepository;
-//import com.ocprojekt.app.escalade.repository.TopoRepository;
-//import com.ocprojekt.app.escalade.repository.UtilisateurRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
+import com.ocprojekt.app.escalade.entities.Secteur;
+import com.ocprojekt.app.escalade.entities.Site;
+import com.ocprojekt.app.escalade.entities.Voie;
+import com.ocprojekt.app.escalade.entities.Topo;
+import com.ocprojekt.app.escalade.entities.User;
+import com.ocprojekt.app.escalade.repository.SecteurRepository;
+import com.ocprojekt.app.escalade.repository.SiteRepository;
+import com.ocprojekt.app.escalade.repository.VoieRepository;
+import com.ocprojekt.app.escalade.repository.TopoRepository;
+import com.ocprojekt.app.escalade.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +28,7 @@ public class EscaladeApplication implements CommandLineRunner {
 //	@Autowired
 //	private VoieRepository voieRepository;
 //	@Autowired
-//	private UtilisateurRepository utilisateurRepository;
+//	private UserRepository userRepository;
 //	@Autowired
 //	private TopoRepository topoRepository;
 
@@ -39,13 +39,13 @@ public class EscaladeApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-// Peuplement des tables Spring Data
+ // Peuplement des tables Spring Data
 //
-//		Utilisateur u1 = utilisateurRepository.save(new Utilisateur("Jimbo","1111"));
-//		Utilisateur u2 = utilisateurRepository.save(new Utilisateur("Elorna","1112"));
-//		Utilisateur u3 = utilisateurRepository.save(new Utilisateur("Martin","1113"));
-//		Utilisateur u4 = utilisateurRepository.save(new Utilisateur("Luck","1114"));
-//		Utilisateur u5 = utilisateurRepository.save(new Utilisateur("Siri","1115"));
+//		User u1 = userRepository.save(new User("Jimbo","1111","ADMIN",true));
+//		User u2 = userRepository.save(new User("Elorna","1112","USER",true));
+//		User u3 = userRepository.save(new User("Martin","1113","USER",true));
+//		User u4 = userRepository.save(new User("Luck","1114", "USER",true));
+//		User u5 = userRepository.save(new User("Siri","1115", "USER", true));
 //
 //		Topo tp1 = topoRepository.save(new Topo("Les falaises du diable",
 //				"Au milieu d'un monde perdu, des falaises de plusieurs centaines" +
@@ -53,7 +53,7 @@ public class EscaladeApplication implements CommandLineRunner {
 //						" les plus téméraires. ",false,u1));
 //		Topo tp2 = topoRepository.save(new Topo("Dragon Pic",
 //				"Un dragon nommé Smaug protège depuis des milliers d'années" +
-//						" un trèsor aux inestimables artefacts.",true,u3));
+//						" un trèsor aux inestimables artefacts.",false,u3));
 //		Topo tp3 = topoRepository.save(new Topo("La colline des Moutons",
 //				"Une jolie colline toute verte qui mène à une splendide falaise. En suivant les" +
 //						" moutons, vous risquez de tomber de haut.",false,u4));
