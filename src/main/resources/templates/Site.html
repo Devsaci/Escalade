@@ -59,7 +59,7 @@
             <h4>Voies :</h4>
             <p></p>
 
-     <div class="col-md-12" th:each="v:${voies}">
+     <div class="col-md-12" th:each="v:${voie}">
          <div class="panel-default">
                   <div class="panel-heading" >
                      <div th:text="${v.nomVoie}"></div>
@@ -71,6 +71,41 @@
             </div>
          </div>
      </div>
+
+            <p></p>
+            <h4>Commentaires :</h4>
+            <p></p>
+            <div class="col-md-12" th:each="t:${commentaires}">
+                <div class="panel-default">
+                    <div class="panel-heading" >
+                        <div th:text="${t.titre}"></div>
+                    </div>
+                    <div class="panel-body" >
+                        <div th:text="${t.message}"></div>
+                        <p></p>
+                        <p> Ecrit par <span th:text="${t.auteur}"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <form th:action="@{saveCom}" method="post">
+                <div class="form-group">
+                    <label class="control-label">Titre :</label>
+                    <input class="form-control" type="text" name="titre" th:value="${commentaire.titre}"/>
+                    <span class="red" th:errors="${commentaire.titre}"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Message :</label>
+                    <input class="form-control" type="text" name="message"
+                           th:value="${commentaire.message}"/>
+                    <span class="red" th:errors="${commentaire.message}"></span>
+                </div>
+                <input type="hidden" name="SiteID" th:value="${site.idSite}"/>
+                <input type="hidden" name="auteur" th:value="${#httpServletRequest.remoteUser}"/>
+                <div>
+                    <button type="submit" class="btn btn-default">Save</button>
+                </div>
+            </form>
 
   </div>
  </section>

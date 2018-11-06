@@ -8,8 +8,9 @@ import java.util.Collection;
 
 @Entity
 public class Site implements Serializable {
-@Id
-@GeneratedValue
+
+    @Id
+    @GeneratedValue
     private int idSite;
     @NotNull
     @Size(min = 4, max = 50)
@@ -19,6 +20,8 @@ public class Site implements Serializable {
     private String descriptionSite;
     @OneToMany(mappedBy = "site", fetch = FetchType.LAZY)
     private Collection<Secteur> secteurs;
+    @OneToMany(mappedBy = "site", fetch = FetchType.LAZY)
+    private Collection<Commentaire> commentaires;
 
     public Site() {
         super();
@@ -60,5 +63,13 @@ public class Site implements Serializable {
 
     public void setSecteurs(Collection<Secteur> secteurs) {
         this.secteurs = secteurs;
+    }
+
+    public Collection<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(Collection<Commentaire> commentaires) {
+        this.commentaires = commentaires;
     }
 }
