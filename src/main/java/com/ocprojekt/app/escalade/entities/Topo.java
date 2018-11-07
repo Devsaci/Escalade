@@ -17,7 +17,7 @@ public class Topo implements Serializable {
     @NotNull
     @Size(min = 4, max = 250)
     private String descriptionTopo;
-    private Boolean isLoan =false;
+    private Boolean isLoan;
     @ManyToOne
     @JoinColumn(name = "username")
     private User user;
@@ -26,7 +26,9 @@ public class Topo implements Serializable {
         super();
     }
 
-    public Topo(String nomTopo, String descriptionTopo, Boolean isLoan, User user) {
+    public Topo(@NotNull @Size(min = 4, max = 50) String nomTopo,
+                @NotNull @Size(min = 4, max = 250) String descriptionTopo,
+                Boolean isLoan, User user) {
         this.nomTopo = nomTopo;
         this.descriptionTopo = descriptionTopo;
         this.isLoan = isLoan;

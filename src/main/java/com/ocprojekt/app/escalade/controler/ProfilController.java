@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -35,9 +34,12 @@ public class ProfilController {
         return "Profil";
     }
 
-    @RequestMapping(value="/saveTopo",method = RequestMethod.POST)
-    public String saveTopo(Model model, @Valid Topo topo, @RequestParam(name="rmUser", defaultValue ="")String username, BindingResult bindingResult){
-        model.addAttribute("rmUser", username);
+    @RequestMapping(value="/saveTopo", method = RequestMethod.POST)
+    public String saveTopo(@RequestParam(name="nomUser", defaultValue ="")String username,
+                           @Valid Topo topo,
+                           BindingResult bindingResult,
+                           Model model){
+        model.addAttribute("nomUser", username);
         User user = userRepository.findUserByUsername(username);
         model.addAttribute("user" , user );
         topo.setLoan(false);

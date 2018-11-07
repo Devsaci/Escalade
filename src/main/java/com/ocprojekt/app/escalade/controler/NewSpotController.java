@@ -29,47 +29,67 @@ public class NewSpotController {
     @Autowired
     private VoieRepository voieRepository;
 
-    @RequestMapping(value="/NewSpot",method = RequestMethod.GET)
+    @RequestMapping(value="/NewSpot", method = RequestMethod.GET)
     public String NewSpot(Model model){
         List<Site> lSites = siteRepository.findAll();
         model.addAttribute("listSite" , lSites );
         List<Secteur> lSecteurs = secteurRepository.findAll();
         model.addAttribute("listSecteur" , lSecteurs );
-
         model.addAttribute("site", new Site());
         model.addAttribute("secteur", new Secteur());
         model.addAttribute("voie", new Voie());
         return "NewSpot";
     }
 
-    @RequestMapping(value="/saveSite",method = RequestMethod.POST)
-    public String saveSite(Model model, @Valid Site site, BindingResult bindingResult){
-        if(bindingResult.hasErrors())
-            return "NewSpot";
+    @RequestMapping(value="/saveSite", method = RequestMethod.POST)
+    public String saveSite(@Valid Site site, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            List<Site> lSites = siteRepository.findAll();
+            model.addAttribute("listSite" , lSites );
+            List<Secteur> lSecteurs = secteurRepository.findAll();
+            model.addAttribute("listSecteur" , lSecteurs );
+            model.addAttribute("secteur", new Secteur());
+            model.addAttribute("voie", new Voie());
+            return "NewSpot";}
         siteRepository.save(site);
         model.addAttribute("site", site);
         return "ConfirmSite";
     }
 
-    @RequestMapping(value="/saveSecteur",method = RequestMethod.POST)
-    public String saveSecteur(Model model, @Valid Secteur secteur, BindingResult bindingResult,
-    @RequestParam(name = "SiteSecteur", defaultValue ="")Integer sis){
+    @RequestMapping(value="/saveSecteur", method = RequestMethod.POST)
+    public String saveSecteur( @RequestParam(name = "SiteSecteur", defaultValue ="")Integer sis,
+                               @Valid Secteur secteur,
+                               BindingResult bindingResult,
+                               Model model){
         Site site = siteRepository.getOne(sis);
         secteur.setSite(site);
-        if(bindingResult.hasErrors())
-            return "NewSpot";
+        if(bindingResult.hasErrors()){
+            List<Site> lSites = siteRepository.findAll();
+            model.addAttribute("listSite" , lSites );
+            List<Secteur> lSecteurs = secteurRepository.findAll();
+            model.addAttribute("listSecteur" , lSecteurs );
+            model.addAttribute("site", new Site());
+            model.addAttribute("voie", new Voie());
+            return "NewSpot";}
         secteurRepository.save(secteur);
         model.addAttribute("secteur", secteur);
         return "ConfirmSecteur";
     }
 
-    @RequestMapping(value="/saveVoie",method = RequestMethod.POST)
-    public String saveVoie(Model model, @Valid Voie voie, BindingResult bindingResult,
-                           @RequestParam(name = "SecteurVoie", defaultValue ="")Integer siv){
+    @RequestMapping(value="/saveVoie", method = RequestMethod.POST)
+    public String saveVoie(@RequestParam(name = "SecteurVoie", defaultValue ="")Integer siv,
+                           @Valid Voie voie, BindingResult bindingResult,
+                           Model model){
         Secteur secteur = secteurRepository.getOne(siv);
         voie.setSecteur(secteur);
-        if(bindingResult.hasErrors())
-            return "NewSpot";
+        if(bindingResult.hasErrors()){
+            List<Site> lSites = siteRepository.findAll();
+            model.addAttribute("listSite" , lSites );
+            List<Secteur> lSecteurs = secteurRepository.findAll();
+            model.addAttribute("listSecteur" , lSecteurs );
+            model.addAttribute("site", new Site());
+            model.addAttribute("secteur", new Secteur());
+            return "NewSpot";}
         voieRepository.save(voie);
         model.addAttribute("voie", voie);
         return "ConfirmVoie";

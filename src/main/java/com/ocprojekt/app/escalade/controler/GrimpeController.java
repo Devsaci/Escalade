@@ -63,13 +63,22 @@ public class GrimpeController {
     }
 
     @RequestMapping(value="/saveCom", method = RequestMethod.POST)
-    public String saveCom(Model model, @RequestParam(name="SiteID", defaultValue ="")Integer sid,
-                          @Valid Commentaire commentaire, BindingResult bindingResult){
-        model.addAttribute("SiteID", sid);
+    public String saveCom(@RequestParam(name="SiD", defaultValue ="")Integer sid,
+                          @Valid Commentaire commentaire,
+                          BindingResult bindingResult,
+                          Model model){
+        model.addAttribute("SiD", sid);
         Site site = siteRepository.getOne(sid);
         commentaire.setSite(site);
-        if(bindingResult.hasErrors())
-            return "Site";
+        if(bindingResult.hasErrors()){
+            model.addAttribute("site" , site );
+            List<Secteur> secteurs = secteurRepository.findSecteursBySiteIdSite(sid);
+            model.addAttribute("secteur" , secteurs );
+            List<Voie> voies = voieRepository.findVoiesBySecteur_Site_IdSite(sid);
+            model.addAttribute("voie", voies);
+            List<Commentaire> commentaires = commentaireRepository.findCommentairesBySite_IdSite(sid);
+            model.addAttribute("commentaires", commentaires);
+            return "Site";}
         commentaireRepository.save(commentaire);
         model.addAttribute("commentaire", commentaire);
         return "ConfirmMess";
