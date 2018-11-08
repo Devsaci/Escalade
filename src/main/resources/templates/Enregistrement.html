@@ -18,7 +18,7 @@
     <h2>S'enregistrer</h2>
     <form th:action="@{/saveUser}" method="post">
         <div class="form-group">
-            <label>Entre ton Pseudo :</label>
+            <label>Choisis un Pseudo :</label>
             <input  class="form-control" type="text" name="username" th:value="${user.username}"/>
             <span class="red" th:errors="${user.username}"></span>
         </div>

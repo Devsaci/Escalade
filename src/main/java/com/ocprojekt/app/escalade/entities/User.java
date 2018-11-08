@@ -19,8 +19,6 @@ public class User implements Serializable {
     @NotNull
     @Size(min = 4, max = 50)
     private String password;
-    @NotNull
-    @Size(min = 4, max = 50)
     private String role;
     private Boolean enabled;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

@@ -59,8 +59,8 @@ public class AccueilController {
                            Model model){
         user.setRole("USER");
         user.setEnabled(true);
-        if(bindingResult.hasErrors()){
-            return "Enregistrement"; }
+        if(bindingResult.hasErrors())
+            return "Enregistrement";
         userRepository.save(user);
         model.addAttribute("user", user);
         return "ConfirmEnregistrement";
