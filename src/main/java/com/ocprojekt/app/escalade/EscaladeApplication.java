@@ -39,7 +39,7 @@ public class EscaladeApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
- // Peuplement des tables Spring Data
+		// Peuplement des tables Spring Data
 //
 //		User u1 = userRepository.save(new User("Jimbo","1111","ADMIN",true));
 //		User u2 = userRepository.save(new User("Elorna","1112","USER",true));

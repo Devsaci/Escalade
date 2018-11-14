@@ -1,6 +1,7 @@
 package com.ocprojekt.app.escalade.controler;
 
 import com.ocprojekt.app.escalade.entities.Topo;
+import com.ocprojekt.app.escalade.repository.PretRepository;
 import com.ocprojekt.app.escalade.repository.TopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class TopoController {
 
     @Autowired
     private TopoRepository topoRepository;
+
+    @Autowired
+    private PretRepository pretRepository;
 
     @RequestMapping(value="/Topo")
     public String Topo(Model model1){

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Topo implements Serializable {
@@ -21,6 +22,8 @@ public class Topo implements Serializable {
     @ManyToOne
     @JoinColumn(name = "username")
     private User user;
+    @OneToMany(mappedBy = "topo", fetch = FetchType.LAZY)
+    private Collection<Pret> prets;
 
     public Topo() {
         super();
