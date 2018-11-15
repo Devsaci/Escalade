@@ -1,5 +1,7 @@
 package com.ocprojekt.app.escalade.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -13,7 +15,12 @@ public class Pret implements Serializable {
     private Integer pretId;
     private String emprunteur;
     private String proprietaire;
+    private String nomDuTopo;
+    @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date debutPret;
+    @NotNull
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date finPret;
     private String statut;
     @ManyToOne
@@ -24,9 +31,11 @@ public class Pret implements Serializable {
         super();
     }
 
-    public Pret(String emprunteur, String proprietaire, Date debutPret, Date finPret, String statut, Topo topo) {
+    public Pret(String emprunteur, String proprietaire, String nomDuTopo, Date debutPret,
+                Date finPret, String statut, Topo topo) {
         this.emprunteur = emprunteur;
         this.proprietaire = proprietaire;
+        this.nomDuTopo = nomDuTopo;
         this.debutPret = debutPret;
         this.finPret = finPret;
         this.statut = statut;
@@ -55,6 +64,14 @@ public class Pret implements Serializable {
 
     public void setProprietaire(String proprietaire) {
         this.proprietaire = proprietaire;
+    }
+
+    public String getNomDuTopo() {
+        return nomDuTopo;
+    }
+
+    public void setNomDuTopo(String nomDuTopo) {
+        this.nomDuTopo = nomDuTopo;
     }
 
     public Date getDebutPret() {

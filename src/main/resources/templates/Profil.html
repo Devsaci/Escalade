@@ -19,14 +19,11 @@
     <section id="Profil">
         <div class="container">
         <h2> Votre Profil </h2>
-        <h4> Bonjour  <strong name="rmUser" th:inline="text">[[${#httpServletRequest.remoteUser}]]</strong> n'oubliez pas de valider vos demandes de prêt de topo! </h4>
+        <h4> Hello  <strong name="rmUser" th:inline="text">[[${#httpServletRequest.remoteUser}]]</strong> n'oublies
+            pas de valider tes demandes de prêt! </h4>
             <p></p>
-
-            <form action="" method="get">
-                <input type="hidden" name="rmUser" th:value="${#httpServletRequest.remoteUser}"/>
-            <button id="btntopos" class="btn btn-default " type="submit">Afficher Mes Topos</button>
-            </form>
-
+            <h4> Mes Topos :</h4>
+            <p></p>
             <div id="affTopo" class="col-md-6" th:each="s:${listopo}">
                 <div class="panel-default">
                     <div class="panel-heading" >
@@ -36,10 +33,42 @@
                         <div th:text="${s.descriptionTopo}">
                         </div>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-secondary pull-right">Gestion des Prêts</button>
+                    <div class="pull-right">
+                      <label> Statut du topo : </label>
+                        <Span th:if="${s.loan} == true">Preté</Span>
+                        <Span th:if="${s.loan} == false">Libre</Span>
                     </div>
                 </div>
+            </div>
+
+            <p></p>
+            <h4> Mes prêts :</h4>
+            <p></p>
+            <p th:unless="${listPretProprio.size()}"> Vous n'avez pas de demande de prêt.</p>
+
+            <div id="lpp" class="col-md-12" th:each="p:${listPretProprio}">
+
+                   <p> <Strong th:text="${p.getEmprunteur()}"></Strong> aimerait vous emprunter
+                       <Strong th:text="${p.getNomDuTopo()}"></Strong> du
+                       <Span th:text="${p.getDebutPret()}"></Span> au
+                       <Span th:text="${p.getFinPret()}"></Span>.
+                       <button>Accepter</button> <button>Refuser</button>
+                   </p>
+            </div>
+
+
+            <p></p>
+            <h4> Mes emprunts :</h4>
+            <p></p>
+            <p th:unless="${listPretEmprunteur.size()}"> Vous n'avez pas de demande d'emprunts.</p>
+
+            <div id="lpe" class="col-md-12" th:each="e:${listPretEmprunteur}">
+
+                <p> Vous demande d'emprunt du topo : <Strong th:text="${e.getNomDuTopo()}"></Strong>
+                     a <Strong th:text="${e.getProprietaire()}"></Strong>
+                    du <Span th:text="${e.getDebutPret()}"></Span> au <Span th:text="${e.getFinPret()}"></Span>
+                    est <Strong th:text="${e.getStatut()}"></Strong>.
+                </p>
             </div>
 
             <div class="col-md-8">

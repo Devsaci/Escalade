@@ -18,6 +18,7 @@ public class Topo implements Serializable {
     @NotNull
     @Size(min = 4, max = 250)
     private String descriptionTopo;
+    private String nomProprietaire;
     private Boolean isLoan;
     @ManyToOne
     @JoinColumn(name = "username")
@@ -31,9 +32,10 @@ public class Topo implements Serializable {
 
     public Topo(@NotNull @Size(min = 4, max = 50) String nomTopo,
                 @NotNull @Size(min = 4, max = 250) String descriptionTopo,
-                Boolean isLoan, User user) {
+                String nomProprietaire, Boolean isLoan, User user) {
         this.nomTopo = nomTopo;
         this.descriptionTopo = descriptionTopo;
+        this.nomProprietaire = nomProprietaire;
         this.isLoan = isLoan;
         this.user = user;
     }
@@ -60,6 +62,14 @@ public class Topo implements Serializable {
 
     public void setDescriptionTopo(String descriptionTopo) {
         this.descriptionTopo = descriptionTopo;
+    }
+
+    public String getNomProprietaire() {
+        return nomProprietaire;
+    }
+
+    public void setNomProprietaire(String nomProprietaire) {
+        this.nomProprietaire = nomProprietaire;
     }
 
     public Boolean getLoan() {

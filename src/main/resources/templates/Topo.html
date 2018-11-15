@@ -19,7 +19,8 @@
     <section id="topo">
         <div class="container">
         <h2> Trouver un Topo </h2>
-        <h4> Consultez notre liste de Topos et faites une demande de prêt!! </h4>
+        <h4> <strong name="rmUser" th:inline="text">[[${#httpServletRequest.remoteUser}]]</strong> tu peux
+            consulter la liste des Topos et faire une demande de prêt :)</h4>
 
 
                 <div id="affTopo" class="col-md-6" th:each="s:${topo}">
@@ -31,7 +32,10 @@
                             <div th:text="${s.descriptionTopo}"></div>
                         </div>
                         <div>
-                        <button type="button" class="btn btn-secondary pull-right">Demande de Prêt</button>
+                            <form th:action="@{topoPret}" method="get">
+                                <input type="hidden" name="idTopo" th:value="${s.idTopo}"/>
+                        <button type="submit" class="btn btn-secondary pull-right">Demande de Prêt</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -9,4 +9,8 @@ import java.util.List;
 public interface TopoRepository extends JpaRepository <Topo,Integer> {
 
     List<Topo> findToposByUser_Username(String username);
+
+    List <Topo> findAllByNomProprietaireIsNot(String Username);
+
+    Topo findToposByIdTopoIs(int idTopo);
 }
