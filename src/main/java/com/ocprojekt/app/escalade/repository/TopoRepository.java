@@ -13,4 +13,6 @@ public interface TopoRepository extends JpaRepository <Topo,Integer> {
     List <Topo> findAllByNomProprietaireIsNot(String Username);
 
     Topo findToposByIdTopoIs(int idTopo);
+
+    Topo findTopoByNomTopo(String nomTopo);
 }

@@ -24,6 +24,7 @@
             <p></p>
             <h4> Mes Topos :</h4>
             <p></p>
+            <div class="col-md-12">
             <div id="affTopo" class="col-md-6" th:each="s:${listopo}">
                 <div class="panel-default">
                     <div class="panel-heading" >
@@ -40,35 +41,120 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <p></p>
             <h4> Mes prêts :</h4>
             <p></p>
+
+            <div class="col-md-12">
             <p th:unless="${listPretProprio.size()}"> Vous n'avez pas de demande de prêt.</p>
-
-            <div id="lpp" class="col-md-12" th:each="p:${listPretProprio}">
-
-                   <p> <Strong th:text="${p.getEmprunteur()}"></Strong> aimerait vous emprunter
-                       <Strong th:text="${p.getNomDuTopo()}"></Strong> du
-                       <Span th:text="${p.getDebutPret()}"></Span> au
-                       <Span th:text="${p.getFinPret()}"></Span>.
-                       <button>Accepter</button> <button>Refuser</button>
-                   </p>
             </div>
 
+            <div id="lppe" class="row" th:each="p:${listPretProprio}" th:if="${p.getStatut()} == 'en attente'">
+                <div class="col-md-6">
+                <span>
+                    <Strong th:text="${p.getEmprunteur()}"></Strong> aimerait vous emprunter
+                    <Strong th:text="${p.getNomDuTopo()}"></Strong> du
+                    <Span th:text="${p.getDebutPret()}"></Span> au
+                    <Span th:text="${p.getFinPret()}"></Span>.
+                </span>
+                </div>
+                <div class="col-md-6">
+                <form th:action="@{choice}" method="post">
+                    <input type="hidden" name="idPret"  th:value="${p.getPretId()}"/>
+                    <button type="submit" name="accept" class="btn-default">Accepter</button>
+                    <button type="submit" name="refus" class="btn-default">Refuser</button>
+                </form>
+                </div>
+            </div>
+
+            <div id="lppa" class="row" th:each="p:${listPretProprio}">
+                <div class="col-md-6" th:if="${p.getStatut()} == 'accepte'">
+                       <Span>
+                       Vous avez accepté une demande de prêt,
+                           vous devez envoyer votre topo <Strong th:text="${p.getNomDuTopo()}"></Strong>
+                           à <Strong th:text="${p.getEmprunteur()}"></Strong> le
+                           <Strong th:text="${p.getDebutPret()}"></Strong>.
+                       </Span>
+                </div>
+                <div class="col-md-6" th:if="${p.getStatut()} == 'accepte'">
+                    <form th:action="@{envoiTopo}" method="post">
+                        <input type="hidden" name="idPret" th:value="${p.getPretId()}"/>
+                        <input type="hidden" name="nomDuTopoPret" th:value="${p.getNomDuTopo()}"/>
+                        <button type="submit" name="envoi" class="btn-default">Envoyer</button>
+                    </form>
+                </div>
+
+                <div class="col-md-12" th:if="${p.getStatut()} == 'en cours'">
+                    Vous avez envoyé votre topo <Strong th:text="${p.getNomDuTopo()}"></Strong> a
+                    <Strong th:text="${p.getEmprunteur()}"></Strong>. Elle vous le renverra au plus
+                    tard le <Strong th:text="${p.getFinPret()}"></Strong>.
+                </div>
+
+            </div>
 
             <p></p>
             <h4> Mes emprunts :</h4>
             <p></p>
+
+            <div class="col-md-12">
             <p th:unless="${listPretEmprunteur.size()}"> Vous n'avez pas de demande d'emprunts.</p>
+            </div>
 
-            <div id="lpe" class="col-md-12" th:each="e:${listPretEmprunteur}">
+            <div id="lpe" class="row" th:each="e:${listPretEmprunteur}">
 
-                <p> Vous demande d'emprunt du topo : <Strong th:text="${e.getNomDuTopo()}"></Strong>
+                <div id="deta" class="col-md-8" th:if="${e.getStatut()} == 'en attente'">
+                <span>
+                    Votre demande d'emprunt du topo : <Strong th:text="${e.getNomDuTopo()}"></Strong>
                      a <Strong th:text="${e.getProprietaire()}"></Strong>
                     du <Span th:text="${e.getDebutPret()}"></Span> au <Span th:text="${e.getFinPret()}"></Span>
                     est <Strong th:text="${e.getStatut()}"></Strong>.
-                </p>
+                </span>
+                </div>
+
+                <div id="deto" class="col-md-8" th:if="${e.getStatut()} == 'accepte'">
+                    <span> Votre demande d'emprunt du topo
+                        <Strong th:text="${e.getNomDuTopo()}"></Strong> à
+                        <Strong th:text="${e.getProprietaire()}"></Strong> a été
+                        <Strong>accepté</Strong>.  <Strong th:text="${e.getProprietaire()}"></Strong>
+                        vous enverra le topo le <Strong th:text="${e.getDebutPret()}"></Strong>.
+                    </span>
+                </div>
+
+                <div class="col-md-6" th:if="${e.getStatut()} == 'en cours'">
+                    Vous avez recu le topo <Strong th:text="${e.getNomDuTopo()}"></Strong> de
+                    <Strong th:text="${e.getProprietaire()}"></Strong>. Vous devez lui renvoyer
+                    avant le <Strong th:text="${e.getFinPret()}"></Strong>.
+                </div>
+                <div class="col-md-6" th:if="${e.getStatut()} == 'en cours'">
+                <form th:action="@{renvoiTopo}" method="post">
+                    <input type="hidden" name="idPret" th:value="${e.getPretId()}"/>
+                    <input type="hidden" name="nomDuTopoPret" th:value="${e.getNomDuTopo()}"/>
+                    <button type="submit" name="renvoi" class="btn-default">Renvoyer</button>
+                </form>
+                </div>
+
+                <!--<div class="col-md-6" th:if="${e.getStatut()} == 'refuse'">-->
+                    <!--<span>Votre demande du pret pour le topo :-->
+                    <!--<Strong th:text="${e.getNomDuTopo()}"></Strong>  à-->
+                    <!--<Strong th:text="${e.getProprietaire()}"></Strong> du-->
+                        <!--<Strong th:text="${e.getDebutPret()}"></Strong> au-->
+                        <!--<Strong th:text="${e.getFinPret()}"></Strong> a été-->
+                        <!--<Strong th:text="${e.getStatut()}"></Strong>.-->
+                    <!--</span>-->
+                <!--</div>-->
+
+                <!--<div class="col-md-6" th:if="${e.getStatut()} == 'termine'">-->
+                    <!--<span>Votre emprunt pour le topo :-->
+                    <!--<Strong th:text="${e.getNomDuTopo()}"></Strong>  à-->
+                    <!--<Strong th:text="${e.getProprietaire()}"></Strong> du-->
+                        <!--<Strong th:text="${e.getDebutPret()}"></Strong> au-->
+                        <!--<Strong th:text="${e.getFinPret()}"></Strong> est-->
+                        <!--<Strong th:text="${e.getStatut()}"></Strong>.-->
+                    <!--</span>-->
+                <!--</div>-->
+
             </div>
 
             <div class="col-md-8">
