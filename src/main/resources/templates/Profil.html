@@ -44,11 +44,14 @@
             </div>
 
             <p></p>
-            <h4> Mes prêts :</h4>
+            <h4> Mes prêts en cours :</h4>
             <p></p>
 
-            <div class="col-md-12">
-            <p th:unless="${listPretProprio.size()}"> Vous n'avez pas de demande de prêt.</p>
+            <div class="row" th:each="p:${listPretProprio}" th:if="${p.getStatut()} != 'en attente'
+            and ${p.getStatut()}!= 'accepte'  and ${p.getStatut()}!= 'en cours'">
+             <div class="col-md-12">
+             <Span> Vous n'avez pas de demande de prêt.</Span>
+            </div>
             </div>
 
             <div id="lppe" class="row" th:each="p:${listPretProprio}" th:if="${p.getStatut()} == 'en attente'">
@@ -88,14 +91,42 @@
 
                 <div class="col-md-12" th:if="${p.getStatut()} == 'en cours'">
                     Vous avez envoyé votre topo <Strong th:text="${p.getNomDuTopo()}"></Strong> a
-                    <Strong th:text="${p.getEmprunteur()}"></Strong>. Elle vous le renverra au plus
+                    <Strong th:text="${p.getEmprunteur()}"></Strong>. Il sera de retour au plus
                     tard le <Strong th:text="${p.getFinPret()}"></Strong>.
                 </div>
 
             </div>
 
             <p></p>
-            <h4> Mes emprunts :</h4>
+            <h4> Mes prêts refusés :</h4>
+            <p></p>
+
+            <div id="lppr" class="row" th:each="p:${listPretProprio}">
+                <div class="col-md-12" th:if="${p.getStatut()} == 'refuse'">
+                    Vous avez refusé la demande de prêt de
+                    <Strong th:text="${p.getEmprunteur()}"></Strong>
+                     pour le topo <Strong th:text="${p.getNomDuTopo()}"></Strong> du
+                    <Strong th:text="${p.getDebutPret()}"></Strong> au
+                    <Strong th:text="${p.getFinPret()}"></Strong>.
+                </div>
+            </div>
+
+            <p></p>
+            <h4> Mes prêts terminés :</h4>
+            <p></p>
+
+            <div id="lppt" class="row" th:each="p:${listPretProprio}">
+                <div class="col-md-12" th:if="${p.getStatut()} == 'termine'">
+                    Le prêt du topo <Strong th:text="${p.getNomDuTopo()}"></Strong>
+                    à  <Strong th:text="${p.getEmprunteur()}"></Strong> du
+                    <Strong th:text="${p.getDebutPret()}"></Strong> au
+                    <Strong th:text="${p.getFinPret()}"></Strong> est
+                    <Strong th:text="${p.getStatut()}"></Strong>.
+                </div>
+            </div>
+
+            <p></p>
+            <h4> Mes emprunts en cours :</h4>
             <p></p>
 
             <div class="col-md-12">
@@ -134,27 +165,38 @@
                     <button type="submit" name="renvoi" class="btn-default">Renvoyer</button>
                 </form>
                 </div>
+            </div>
 
-                <!--<div class="col-md-6" th:if="${e.getStatut()} == 'refuse'">-->
-                    <!--<span>Votre demande du pret pour le topo :-->
-                    <!--<Strong th:text="${e.getNomDuTopo()}"></Strong>  à-->
-                    <!--<Strong th:text="${e.getProprietaire()}"></Strong> du-->
-                        <!--<Strong th:text="${e.getDebutPret()}"></Strong> au-->
-                        <!--<Strong th:text="${e.getFinPret()}"></Strong> a été-->
-                        <!--<Strong th:text="${e.getStatut()}"></Strong>.-->
-                    <!--</span>-->
-                <!--</div>-->
+            <p></p>
+            <h4> Mes emprunts refusés :</h4>
+            <p></p>
 
-                <!--<div class="col-md-6" th:if="${e.getStatut()} == 'termine'">-->
-                    <!--<span>Votre emprunt pour le topo :-->
-                    <!--<Strong th:text="${e.getNomDuTopo()}"></Strong>  à-->
-                    <!--<Strong th:text="${e.getProprietaire()}"></Strong> du-->
-                        <!--<Strong th:text="${e.getDebutPret()}"></Strong> au-->
-                        <!--<Strong th:text="${e.getFinPret()}"></Strong> est-->
-                        <!--<Strong th:text="${e.getStatut()}"></Strong>.-->
-                    <!--</span>-->
-                <!--</div>-->
+            <div id="lper" class="row" th:each="e:${listPretEmprunteur}">
+                <div class="col-md-12" th:if="${e.getStatut()} == 'refuse'">
+                    <span>Votre demande du pret pour le topo :
+                    <Strong th:text="${e.getNomDuTopo()}"></Strong>  à
+                    <Strong th:text="${e.getProprietaire()}"></Strong> du
+                        <Strong th:text="${e.getDebutPret()}"></Strong> au
+                        <Strong th:text="${e.getFinPret()}"></Strong> a été
+                        <Strong th:text="${e.getStatut()}"></Strong>.
+                    </span>
+                </div>
+            </div>
 
+            <p></p>
+            <h4> Mes emprunts terminés :</h4>
+            <p></p>
+
+            <div id="lpet" class="row" th:each="e:${listPretEmprunteur}">
+                <div class="col-md-12" th:if="${e.getStatut()} == 'termine'">
+                      <span>Votre emprunt pour le topo :
+                    <Strong th:text="${e.getNomDuTopo()}"></Strong>  à
+                    <Strong th:text="${e.getProprietaire()}"></Strong> du
+                        <Strong th:text="${e.getDebutPret()}"></Strong> au
+                        <Strong th:text="${e.getFinPret()}"></Strong> est
+                        <Strong th:text="${e.getStatut()}"></Strong>.
+                    </span>
+                </div>
             </div>
 
             <div class="col-md-8">

@@ -23,8 +23,10 @@
             <h4> Trouve ton spot de grimpe parmi tous nos spots et amuse toi! </h4>
             <p></p>
             <form th:action="@{ListeSites}" method="get">
-            <label>Mot clef :</label>
-            <input type="text" name="motclef" th:value="${motclef}"/>
+                <label>Nom du Site:</label>
+                <input type="text" name="motclef" th:value="${motclef}"/>
+                <label>Description du Site:</label>
+                <input type="text" name="motclef2" th:value="${motclef2}"/>
             <button class="btn btn-secondary">Chercher</button>
             </form>
         </div>

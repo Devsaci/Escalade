@@ -13,6 +13,8 @@ public interface SiteRepository extends JpaRepository<Site,Integer> {
     @Query ("SELECT s FROM Site s WHERE s.nomSite LIKE :x")
     List<Site> chercherSite(@Param("x")String mc);
 
+    List<Site> findSitesByNomSiteIsContainingAndDescriptionSiteContaining(String mc1, String mc2);
+
     @Override
     Site getOne(Integer integer);
 
