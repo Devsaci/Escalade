@@ -31,15 +31,14 @@ public class Pret implements Serializable {
         super();
     }
 
-    public Pret(String emprunteur, String proprietaire, String nomDuTopo, Date debutPret,
-                Date finPret, String statut, Topo topo) {
+    public Pret(String emprunteur, String proprietaire, String nomDuTopo, @NotNull Date debutPret, @NotNull Date finPret, String statut, Topo topo) {
         this.emprunteur = emprunteur;
         this.proprietaire = proprietaire;
         this.nomDuTopo = nomDuTopo;
         this.debutPret = debutPret;
         this.finPret = finPret;
         this.statut = statut;
-        this.topo= topo;
+        this.topo = topo;
     }
 
     public Integer getPretId() {

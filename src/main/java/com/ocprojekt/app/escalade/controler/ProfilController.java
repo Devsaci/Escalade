@@ -40,6 +40,13 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
+
         return "Profil";
     }
 
@@ -56,6 +63,12 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
         topo.setNomProprietaire(username);
         topo.setLoan(false);
         topo.setUser(user);
@@ -79,6 +92,12 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
 
      Pret pret = pretRepository.getOne(idPret);
      pret.setStatut("accepte");
@@ -99,6 +118,12 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
 
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("refuse");
@@ -120,6 +145,12 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
 
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("en cours");
@@ -144,6 +175,12 @@ public class ProfilController {
         model.addAttribute("listPretEmprunteur", lpe);
         List<Pret> lpp = pretRepository.findAllByProprietaire(username);
         model.addAttribute("listPretProprio", lpp);
+        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoPret", listnopret);
+        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
+                "refuse","termine");
+        model.addAttribute("listNoEmprunt", listnoemprunt);
 
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("termine");
