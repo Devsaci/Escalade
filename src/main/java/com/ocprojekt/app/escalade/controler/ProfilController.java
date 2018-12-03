@@ -46,7 +46,6 @@ public class ProfilController {
         List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
                 "refuse","termine");
         model.addAttribute("listNoEmprunt", listnoemprunt);
-
         return "Profil";
     }
 
@@ -69,6 +68,7 @@ public class ProfilController {
         List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
                 "refuse","termine");
         model.addAttribute("listNoEmprunt", listnoemprunt);
+
         topo.setNomProprietaire(username);
         topo.setLoan(false);
         topo.setUser(user);
@@ -82,112 +82,44 @@ public class ProfilController {
     @RequestMapping(value="/choice", method = RequestMethod.POST, params="accept")
     public String acceptPret(@RequestParam(name="idPret", defaultValue ="")int idPret,
                              Model model) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findUserByUsername(username);
-        model.addAttribute("user" , user );
-        List<Topo> listopo = topoRepository.findToposByUser_Username(username);
-        model.addAttribute("listopo" , listopo );
-        model.addAttribute("topo", new Topo());
-        List<Pret> lpe = pretRepository.findAllByEmprunteur(username);
-        model.addAttribute("listPretEmprunteur", lpe);
-        List<Pret> lpp = pretRepository.findAllByProprietaire(username);
-        model.addAttribute("listPretProprio", lpp);
-        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoPret", listnopret);
-        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoEmprunt", listnoemprunt);
-
      Pret pret = pretRepository.getOne(idPret);
      pret.setStatut("accepte");
      pretRepository.save(pret);
-        return "Profil";
+        return "redirect:/Profil";
     }
 
     @RequestMapping(value="/choice", method = RequestMethod.POST, params="refus")
     public String refusPret(@RequestParam(name="idPret", defaultValue ="")int idPret,
                              Model model) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findUserByUsername(username);
-        model.addAttribute("user" , user );
-        List<Topo> listopo = topoRepository.findToposByUser_Username(username);
-        model.addAttribute("listopo" , listopo );
-        model.addAttribute("topo", new Topo());
-        List<Pret> lpe = pretRepository.findAllByEmprunteur(username);
-        model.addAttribute("listPretEmprunteur", lpe);
-        List<Pret> lpp = pretRepository.findAllByProprietaire(username);
-        model.addAttribute("listPretProprio", lpp);
-        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoPret", listnopret);
-        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoEmprunt", listnoemprunt);
-
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("refuse");
         pretRepository.save(pret);
-        return "Profil";
+        return "redirect:/Profil";
     }
 
     @RequestMapping(value="/envoiTopo", method = RequestMethod.POST)
     public String envoiTopo(@RequestParam(name="idPret", defaultValue ="")int idPret,
                             @RequestParam(name="nomDuTopoPret", defaultValue ="")String ndTopoPret,
                              Model model) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findUserByUsername(username);
-        model.addAttribute("user" , user );
-        List<Topo> listopo = topoRepository.findToposByUser_Username(username);
-        model.addAttribute("listopo" , listopo );
-        model.addAttribute("topo", new Topo());
-        List<Pret> lpe = pretRepository.findAllByEmprunteur(username);
-        model.addAttribute("listPretEmprunteur", lpe);
-        List<Pret> lpp = pretRepository.findAllByProprietaire(username);
-        model.addAttribute("listPretProprio", lpp);
-        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoPret", listnopret);
-        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoEmprunt", listnoemprunt);
-
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("en cours");
         pretRepository.save(pret);
         Topo topo = topoRepository.findTopoByNomTopo(ndTopoPret);
         topo.setLoan(true);
         topoRepository.save(topo);
-        return "Profil";
+        return "redirect:/Profil";
     }
 
     @RequestMapping(value="/renvoiTopo", method = RequestMethod.POST)
     public String renvoiTopo(@RequestParam(name="idPret", defaultValue ="")int idPret,
                              @RequestParam(name="nomDuTopoPret", defaultValue ="")String ndTopoPret,
                              Model model) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findUserByUsername(username);
-        model.addAttribute("user" , user );
-        List<Topo> listopo = topoRepository.findToposByUser_Username(username);
-        model.addAttribute("listopo" , listopo );
-        model.addAttribute("topo", new Topo());
-        List<Pret> lpe = pretRepository.findAllByEmprunteur(username);
-        model.addAttribute("listPretEmprunteur", lpe);
-        List<Pret> lpp = pretRepository.findAllByProprietaire(username);
-        model.addAttribute("listPretProprio", lpp);
-        List<Pret> listnopret=pretRepository.findPretsByProprietaireAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoPret", listnopret);
-        List<Pret> listnoemprunt=pretRepository.findPretsByEmprunteurAndStatutIsNotAndStatutIsNot(username,
-                "refuse","termine");
-        model.addAttribute("listNoEmprunt", listnoemprunt);
-
         Pret pret = pretRepository.getOne(idPret);
         pret.setStatut("termine");
         pretRepository.save(pret);
         Topo topo = topoRepository.findTopoByNomTopo(ndTopoPret);
         topo.setLoan(false);
         topoRepository.save(topo);
-        return "Profil";
+        return "redirect:/Profil";
     }
 }

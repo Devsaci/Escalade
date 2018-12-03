@@ -3,7 +3,9 @@ package com.ocprojekt.app.escalade.entities;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,9 +19,11 @@ public class Pret implements Serializable {
     private String proprietaire;
     private String nomDuTopo;
     @NotNull
+    @Future(message = "Cette date est passée." )
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date debutPret;
     @NotNull
+    @Future(message = "Cette date est passée." )
     @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private Date finPret;
     private String statut;

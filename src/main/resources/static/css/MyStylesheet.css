@@ -21,6 +21,13 @@ section{
     margin-bottom: 80px;
 }
 
+@media (min-width:768px) {
+
+    .navbar-toggler {
+        display: none;
+    }
+}
+
 #profCreaTopo{
     margin-top: 20px;
 }

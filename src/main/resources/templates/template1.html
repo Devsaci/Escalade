@@ -12,11 +12,21 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+
             <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/Accueil}"><strong>Escalade</strong></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav">
-                    <li><a  th:href="@{/Accueil}"><strong>Escalade</strong></a></li>
                     <li><a  th:href="@{/ListeSites}">Ou Grimper?</a></li>
                     <li><a  th:href="@{/NewSpot}">New Spot</a></li>
                     <li><a  th:href="@{/Topo}">Trouver un Topo</a></li>
@@ -24,8 +34,10 @@
                     <li><a  href="#" th:href="@{/logout}">Logout</a></li>
                 </ul>
             </div>
+
         </div>
     </nav>
+
 </header>
 
 <section layout:fragment="content">
@@ -39,6 +51,12 @@
         </div>
     </nav>
 </footer>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Javascript de Bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
