@@ -39,7 +39,6 @@ public class GrimpeController {
     public String Grimpe(Model model,
                          @RequestParam(name="motclef", defaultValue ="")String mc,
                          @RequestParam(name="motclef2", defaultValue ="")String mc2){
-//      List<Site> lSites = siteRepository.chercherSite("%"+mc+"%");
         List<Site> lSites = siteRepository.findSitesByNomSiteIsContainingAndDescriptionSiteContaining(mc,mc2);
         model.addAttribute("listSite" , lSites );
         model.addAttribute("motclef", mc );

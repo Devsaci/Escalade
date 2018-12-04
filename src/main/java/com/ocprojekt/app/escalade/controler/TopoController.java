@@ -22,9 +22,6 @@ import java.util.List;
 public class TopoController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private TopoRepository topoRepository;
 
     @Autowired
