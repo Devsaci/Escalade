@@ -25,7 +25,6 @@ l'ecosystème SPRING.
 * CSS 3
 
 #Installation
-
 Réaliser un gitclone du projet dans votre repertoire 
 de travail. L'importer dans IntelliJ Idea.
 
@@ -50,7 +49,6 @@ create" en mode "update" dans le fichier
 application.properties.
 
 Vous pouvez lancer l'appli, la Bdd est opérationel.
-
 
 #Auteur
 Mathieu Le Cardinal dans le cadre de sa formation Développeur 
