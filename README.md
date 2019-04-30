@@ -7,7 +7,7 @@ https://github.com/Moorgtat/Escalade
 * Site Web Responsive
 * Connexion Utilisateur Sécurisé
 * Barre de recherche Multi-critères
-* Création de contenu Site/Secteur/Voie/Topo
+* Création de contenu Site/Secteur/Voie/Topo par l'utilisateur
 * Système de gestion de prêt
 * Système de Commentaires Utilisateurs
 
