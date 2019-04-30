@@ -1,9 +1,9 @@
-Projet 6 : OC Escalade
+# Projet 6 : OC Escalade
 
 Mon site d'Escalade OC Escalade . Lien vers le github du projet :
 https://github.com/Moorgtat/Escalade
 
-#Features
+# Features
 * Site Web Responsive
 * Connexion Utilisateur Sécurisé
 * Barre de recherche Multi-critères
@@ -11,7 +11,7 @@ https://github.com/Moorgtat/Escalade
 * Système de gestion de prêt
 * Système de Commentaires Utilisateurs
 
-#Technologies
+# Technologies
 Les technologies utilisé pour ce projet sont basés sur 
 l'ecosystème SPRING. 
 
@@ -24,7 +24,7 @@ l'ecosystème SPRING.
 * Html 5 
 * CSS 3
 
-#Installation
+# Installation
 Réaliser un gitclone du projet dans votre repertoire 
 de travail. L'importer dans IntelliJ Idea.
 
@@ -44,12 +44,12 @@ ce qui est en commentaire et lancer l'application.
 Remettre en commentaire ce que vous avez décommenter dans
 EscaladeApplication.
  
-Repassez la configuration "spring.jpa.hibernate.ddl-auto=
+Repasser la configuration "spring.jpa.hibernate.ddl-auto=
 create" en mode "update" dans le fichier 
 application.properties.
 
 Vous pouvez lancer l'appli, la Bdd est opérationel.
 
-#Auteur
+# Auteur
 Mathieu Le Cardinal dans le cadre de sa formation Développeur 
 JAVA chez OpenClassroom.
